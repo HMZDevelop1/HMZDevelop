@@ -1,0 +1,33 @@
+{
+  "name": "hmzdevelop-cinematic",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render src/index.ts CinematicVideo out/video-4k-60fps.mp4 --codec=h264 --crf=10 --height=2160 --width=3840",
+    "build-preview": "remotion render src/index.ts CinematicVideo out/preview.mp4 --codec=h264 --crf=18 --height=1080 --width=1920",
+    "preview": "remotion preview src/index.ts"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.92.7",
+    "@react-three/fiber": "^8.15.12",
+    "@react-three/postprocessing": "^2.15.11",
+    "@remotion/cli": "^4.0.466",
+    "@remotion/noise": "^4.0.466",
+    "@remotion/player": "^4.0.466",
+    "@remotion/renderer": "^4.0.466",
+    "@remotion/three": "^4.0.466",
+    "postprocessing": "^6.33.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.170.0",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@types/three": "^0.170.0",
+    "typescript": "^5.3.3"
+  }
+}

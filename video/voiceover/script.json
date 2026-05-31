@@ -1,0 +1,78 @@
+{
+  "style": "Luxury tech presentation. High-end startup commercial. Apple keynote atmosphere. Confident feminine narration. Soft deep tone. Slow cinematic pace.",
+  "segments": [
+    {
+      "id": "intro",
+      "startFrame": 0,
+      "duration": 280,
+      "lines": [
+        { "frame": 0, "text": "Ladies and gentlemen... welcome to HMZDevelop." },
+        { "frame": 100, "text": "We craft premium digital experiences." },
+        { "frame": 180, "text": "With performance, purpose, and precision." }
+      ]
+    },
+    {
+      "id": "hero",
+      "startFrame": 300,
+      "duration": 380,
+      "lines": [
+        { "frame": 300, "text": "Build something extraordinary." },
+        { "frame": 380, "text": "Every pixel tells a story." },
+        { "frame": 440, "text": "Every interaction creates an experience." },
+        { "frame": 520, "text": "We turn ideas into websites. Clean code. Thoughtful design." },
+        { "frame": 600, "text": "From first sketch to final launch." }
+      ]
+    },
+    {
+      "id": "services",
+      "startFrame": 720,
+      "duration": 380,
+      "lines": [
+        { "frame": 720, "text": "From starter websites to custom digital solutions," },
+        { "frame": 800, "text": "our services are designed to scale with your ambitions." },
+        { "frame": 900, "text": "Premium quality at every price point." }
+      ]
+    },
+    {
+      "id": "showcase",
+      "startFrame": 1140,
+      "duration": 320,
+      "lines": [
+        { "frame": 1140, "text": "Our work speaks for itself." },
+        { "frame": 1220, "text": "Looking2Flyy — a premium hair studio experience." },
+        { "frame": 1320, "text": "Built for bookings. Built for beauty. Built for growth." }
+      ]
+    },
+    {
+      "id": "whyprocess",
+      "startFrame": 1500,
+      "duration": 380,
+      "lines": [
+        { "frame": 1500, "text": "Why choose HMZDevelop?" },
+        { "frame": 1580, "text": "We don't just build websites." },
+        { "frame": 1650, "text": "We engineer complete digital ecosystems." },
+        { "frame": 1730, "text": "Modern architecture. Luxury design. A process built around you." }
+      ]
+    },
+    {
+      "id": "contact",
+      "startFrame": 1920,
+      "duration": 280,
+      "lines": [
+        { "frame": 1920, "text": "Ready to create something extraordinary?" },
+        { "frame": 2010, "text": "Let's build together." },
+        { "frame": 2080, "text": "Book a call. Send a message. Connect with us." }
+      ]
+    },
+    {
+      "id": "final",
+      "startFrame": 2220,
+      "duration": 480,
+      "lines": [
+        { "frame": 2220, "text": "HMZDevelop." },
+        { "frame": 2320, "text": "We Design. We Develop. We Scale." },
+        { "frame": 2440, "text": "Complete digital solutions, without limits." }
+      ]
+    }
+  ]
+}

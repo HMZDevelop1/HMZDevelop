@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#F2D27A" />
+      <stop offset="100%" stop-color="#D4AF37" />
+    </linearGradient>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050505" />
+      <stop offset="100%" stop-color="#0a0a0a" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Subtle grid -->
+  <g opacity="0.03">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="60" y1="0" x2="60" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="120" y1="0" x2="120" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="180" y1="0" x2="180" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="240" y1="0" x2="240" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="300" y1="0" x2="300" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="360" y1="0" x2="360" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="420" y1="0" x2="420" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="480" y1="0" x2="480" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="540" y1="0" x2="540" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="600" y1="0" x2="600" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="660" y1="0" x2="660" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="720" y1="0" x2="720" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="780" y1="0" x2="780" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="840" y1="0" x2="840" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="900" y1="0" x2="900" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="960" y1="0" x2="960" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="1020" y1="0" x2="1020" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="1080" y1="0" x2="1080" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="1140" y1="0" x2="1140" y2="630" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="0" y1="63" x2="1200" y2="63" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="0" y1="126" x2="1200" y2="126" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="0" y1="189" x2="1200" y2="189" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="0" y1="252" x2="1200" y2="252" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="0" y1="315" x2="1200" y2="315" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="0" y1="378" x2="1200" y2="378" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="0" y1="441" x2="1200" y2="441" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="0" y1="504" x2="1200" y2="504" stroke="#D4AF37" stroke-width="0.5" />
+    <line x1="0" y1="567" x2="1200" y2="567" stroke="#D4AF37" stroke-width="0.5" />
+  </g>
+
+  <!-- Glow orbs -->
+  <circle cx="350" cy="315" r="250" fill="rgba(212,175,55,0.04)" filter="url(#glow)" />
+  <circle cx="850" cy="315" r="250" fill="rgba(242,210,122,0.03)" filter="url(#glow)" />
+
+  <!-- Decorative line -->
+  <line x1="200" y1="280" x2="1000" y2="280" stroke="rgba(212,175,55,0.08)" stroke-width="1" />
+  <line x1="200" y1="350" x2="1000" y2="350" stroke="rgba(212,175,55,0.08)" stroke-width="1" />
+
+  <!-- HMZ (gold) -->
+  <text x="50%" y="50%" font-family="'Clash Display', system-ui, -apple-system, sans-serif" font-size="160" font-weight="700" fill="url(#gold)" text-anchor="middle" dominant-baseline="central" letter-spacing="-2">
+    HMZ
+  </text>
+
+  <!-- Develop (white) -->
+  <text x="50%" y="50%" font-family="'Clash Display', system-ui, -apple-system, sans-serif" font-size="160" font-weight="700" fill="#F5F5F5" text-anchor="middle" dominant-baseline="central" dy="80" letter-spacing="-2">
+    Develop
+  </text>
+
+  <!-- Tagline -->
+  <text x="50%" y="58%" font-family="'Clash Display', system-ui, -apple-system, sans-serif" font-size="18" fill="#8B8B8B" text-anchor="middle" dominant-baseline="central" dy="100" letter-spacing="4">
+    PREMIUM DIGITAL STUDIO
+  </text>
+
+  <!-- Bottom line -->
+  <line x1="450" y1="420" x2="750" y2="420" stroke="rgba(212,175,55,0.15)" stroke-width="1" />
+</svg>
