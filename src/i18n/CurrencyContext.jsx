@@ -3,10 +3,8 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 const CurrencyContext = createContext()
 
 const CURRENCIES = {
-  CAD: { symbol: 'CAD', label: 'Canadian Dollar', flag: '🇨🇦', currencySymbol: '$' },
+  CAD: { symbol: 'CAD', label: 'Dollar Canadien', flag: '🇨🇦', currencySymbol: '$' },
   USD: { symbol: 'USD', label: 'US Dollar', flag: '🇺🇸', currencySymbol: '$' },
-  EUR: { symbol: 'EUR', label: 'Euro', flag: '🇪🇺', currencySymbol: '€' },
-  MAD: { symbol: 'MAD', label: 'Moroccan Dirham', flag: '🇲🇦', currencySymbol: 'د.م.' },
 }
 
 const STORAGE_KEY = 'hmz-currency'
@@ -56,7 +54,7 @@ export function CurrencyProvider({ children }) {
       }
     } catch (err) {
       console.warn('Currency fetch failed, using fallback rates')
-      const fallback = { CAD: 1, USD: 0.74, EUR: 0.68, MAD: 7.3 }
+      const fallback = { CAD: 1, USD: 0.74 }
       setRates(fallback)
       storeRates(fallback)
     } finally {
