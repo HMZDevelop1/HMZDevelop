@@ -75,7 +75,7 @@ export default function Hero() {
             floatAmplitude={0.5}
             mouseInfluence={0.5}
           />
-          <Particles3D count={80} color="#D4AF37" size={0.02} speed={0.08} spread={12} />
+          <Particles3D count={50} color="#D4AF37" size={0.02} speed={0.08} spread={12} />
         </Scene3D>
       </Suspense>
 

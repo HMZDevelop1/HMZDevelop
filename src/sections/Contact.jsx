@@ -118,7 +118,7 @@ export default function Contact() {
         <div className="absolute inset-0">
           <Suspense fallback={null}>
             <Scene3D cameraPosition={[0, 0, 6]} frameloop="demand" dpr={[1, 1.2]}>
-              <Particles3D count={100} color="#D4AF37" size={0.015} speed={0.05} spread={15} />
+              <Particles3D count={50} color="#D4AF37" size={0.015} speed={0.05} spread={15} />
             </Scene3D>
           </Suspense>
         </div>

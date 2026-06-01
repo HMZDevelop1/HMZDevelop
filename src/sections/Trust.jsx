@@ -2,6 +2,29 @@ import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { useLanguage } from '../i18n/LanguageContext'
+import useTilt from '../hooks/useTilt'
+
+function TrustCard({ stat, idx }) {
+  const tiltRef = useTilt({ perspective: 800, maxTilt: 3, scale: 1.01 })
+
+  return (
+    <div
+      ref={tiltRef}
+      className="trust-card glass-card rounded-card p-6 text-center card-glow-border group"
+      style={{ transformStyle: 'preserve-3d' }}
+    >
+      <div className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold gold-gradient mb-2">
+        {stat.value}
+      </div>
+      <div className="font-body text-sm font-medium text-white mb-1 group-hover:text-gold transition-colors">
+        {stat.label}
+      </div>
+      <div className="font-body text-xs text-muted leading-relaxed">
+        {stat.desc}
+      </div>
+    </div>
+  )
+}
 
 export default function Trust() {
   const { t } = useLanguage()
@@ -46,21 +69,8 @@ export default function Trust() {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {t.trust.stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="trust-card glass-card rounded-card p-6 text-center hover:gold-glow transition-all duration-500 group"
-            >
-              <div className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold gold-gradient mb-2">
-                {stat.value}
-              </div>
-              <div className="font-body text-sm font-medium text-white mb-1 group-hover:text-gold transition-colors">
-                {stat.label}
-              </div>
-              <div className="font-body text-xs text-muted leading-relaxed">
-                {stat.desc}
-              </div>
-            </div>
+          {t.trust.stats.map((stat, idx) => (
+            <TrustCard key={stat.label} stat={stat} idx={idx} />
           ))}
         </div>
       </div>

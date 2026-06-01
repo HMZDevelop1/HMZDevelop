@@ -26,7 +26,7 @@ export default function CurrencySelector() {
         style={{ transformStyle: 'preserve-3d' }}
       >
         <span className="relative z-10 block" style={{ transform: 'translateZ(6px)' }}>
-          {current.flag} {currency}
+          {current.flag} {current.currencySymbol} {currency}
         </span>
         {loading && (
           <span className="w-1.5 h-1.5 rounded-full bg-gold/50 animate-pulse" />
@@ -61,7 +61,7 @@ export default function CurrencySelector() {
                   }`}
                 >
                   <span className="text-sm">{info.flag}</span>
-                  <span className="font-heading text-[11px] font-semibold tracking-wide">{code}</span>
+                  <span className="font-heading text-[11px] font-semibold tracking-wide">{info.currencySymbol} {code}</span>
                   <span className="font-body text-[10px] text-muted/50 ml-auto">{info.label}</span>
                 </button>
               ))}

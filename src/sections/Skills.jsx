@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLanguage } from '../i18n/LanguageContext'
+import useTilt from '../hooks/useTilt'
 
 const skillCategories = [
   {
@@ -122,44 +123,29 @@ function SkillBar({ name, level, delay }) {
 }
 
 function CategoryCard({ category, index }) {
-  const cardRef = useRef(null)
+  const tiltRef = useTilt({ perspective: 800, maxTilt: 3, scale: 1.01 })
   const stagger = index * 0.1 + 0.2
 
-  useEffect(() => {
-    const el = cardRef.current
-    if (!el) return
-    const ctx = gsap.context(() => {
-      gsap.fromTo(el,
-        { opacity: 0, y: 60, scale: 0.95 },
-        {
-          opacity: 1, y: 0, scale: 1,
-          duration: 1,
-          ease: 'power4.out',
-          delay: stagger,
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      )
-    }, el)
-    return () => ctx.revert()
-  }, [stagger])
-
   return (
-    <div ref={cardRef} className="opacity-0">
+    <motion.div
+      ref={tiltRef}
+      initial={{ opacity: 0, y: 60, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1, delay: stagger, ease: [0.16, 1, 0.3, 1] }}
+    >
       <div
-        className="group relative rounded-2xl p-6 h-full backdrop-blur-sm transition-all duration-500 hover:border-gold/30"
+        className="group relative rounded-2xl p-6 h-full backdrop-blur-sm card-glow-border"
         style={{
           background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(212,175,55,0.03) 100%)',
           border: '1px solid rgba(212,175,55,0.08)',
           boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+          transformStyle: 'preserve-3d',
         }}
       >
         <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
-            background: 'radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(212,175,55,0.06), transparent 60%)',
+            background: 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(212,175,55,0.06), transparent 60%)',
           }}
         />
 
@@ -182,7 +168,7 @@ function CategoryCard({ category, index }) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

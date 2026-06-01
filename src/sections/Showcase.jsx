@@ -1,74 +1,28 @@
 import React, { useEffect, useRef, useState, lazy, Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLanguage } from '../i18n/LanguageContext'
+import useTilt from '../hooks/useTilt'
 
-const ShowcaseCard3D = lazy(() => import('../components/ShowcaseCard3D'))
 const Scene3D = lazy(() => import('../components/Scene3D'))
 const FloatingShape = lazy(() => import('../components/FloatingShape'))
 const Particles3D = lazy(() => import('../components/Particles3D'))
 import BorderRotate from '../components/BorderRotate'
 
-function CardCanvas({ icon, logo }) {
-  if (logo) {
-    return (
-      <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 flex items-center justify-center p-2 sm:p-3">
-        <div className="w-full h-full rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500"
-          style={{ background: 'rgba(212,175,55,0.03)' }}
-        >
-          <img
-            src={logo}
-            alt="project logo"
-            className="w-4/5 h-4/5 object-contain drop-shadow-2xl"
-          />
-        </div>
-      </div>
-    )
-  }
-
+function ProjectIcon({ icon }) {
   return (
-    <div className="w-28 h-28 md:w-40 md:h-40">
-      <Canvas
-        camera={{ position: [0, 0, 3.5], fov: 40 }}
-        dpr={[1, 1.2]}
-        gl={{ antialias: true, alpha: true }}
-        style={{ background: 'transparent' }}
+    <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 flex items-center justify-center">
+      <div className="w-full h-full rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500 relative overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(242,210,122,0.03))',
+          border: '1px solid rgba(212,175,55,0.12)',
+        }}
       >
-        <ambientLight intensity={2} />
-        <directionalLight position={[5, 5, 5]} intensity={1.2} />
-        <directionalLight position={[-3, -3, -3]} intensity={0.5} color="#D4AF37" />
-        <Suspense fallback={null}>
-          <ShowcaseCard3D icon={icon} />
-        </Suspense>
-      </Canvas>
-    </div>
-  )
-}
-
-function LiveIndicator() {
-  return (
-    <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all duration-300 hover:bg-gold/5 cursor-default"
-      style={{
-        background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(242,210,122,0.03))',
-        border: '1px solid rgba(212,175,55,0.1)',
-      }}
-    >
-      <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(212,175,55,0.08)' }}>
-        <motion.div
-          className="h-full rounded-full"
-          style={{
-            background: 'linear-gradient(90deg, #D4AF37, #F2D27A, #D4AF37)',
-            backgroundSize: '200% 100%',
-          }}
-          animate={{ backgroundPosition: ['0% 0%', '200% 0%'] }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+          style={{ background: 'radial-gradient(circle at 50% 50%, rgba(212,175,55,0.1), transparent 70%)' }}
         />
-      </div>
-      <div className="flex items-center gap-1.5">
-        <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse shadow-[0_0_6px_rgba(212,175,55,0.5)]" />
-        <span className="font-body text-[9px] uppercase tracking-[0.2em] text-gold/50 font-medium">Live</span>
+        <span className="text-6xl md:text-7xl relative z-10 drop-shadow-2xl">{icon}</span>
       </div>
     </div>
   )
@@ -78,9 +32,10 @@ export default function Showcase() {
   const { t } = useLanguage()
   const sectionRef = useRef(null)
   const bgRef = useRef(null)
-  const cardRef = useRef(null)
+  const cardInnerRef = useRef(null)
   const [isHovered, setIsHovered] = useState(false)
   const project = t.showcase.projects[0]
+  const tiltRef = useTilt({ perspective: 1200, maxTilt: 4, scale: 1.015 })
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -95,34 +50,9 @@ export default function Showcase() {
           }
         },
       })
-      ScrollTrigger.refresh()
     }, sectionRef)
 
     return () => ctx.revert()
-  }, [])
-
-  useEffect(() => {
-    const card = cardRef.current
-    if (!card) return
-    const handleMouseMove = (e) => {
-      const rect = card.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      const centerX = rect.width / 2
-      const centerY = rect.height / 2
-      const rotateX = ((y - centerY) / centerY) * -6
-      const rotateY = ((x - centerX) / centerX) * 6
-      card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02,1.02,1.02)`
-    }
-    const handleMouseLeave = () => {
-      card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)'
-    }
-    card.addEventListener('mousemove', handleMouseMove)
-    card.addEventListener('mouseleave', handleMouseLeave)
-    return () => {
-      card.removeEventListener('mousemove', handleMouseMove)
-      card.removeEventListener('mouseleave', handleMouseLeave)
-    }
   }, [])
 
   const item = {
@@ -158,7 +88,7 @@ export default function Showcase() {
               floatAmplitude={0.6}
               mouseInfluence={0.2}
             />
-            <Particles3D count={80} color="#D4AF37" size={0.02} speed={0.04} spread={15} />
+            <Particles3D count={40} color="#D4AF37" size={0.02} speed={0.04} spread={15} />
           </Scene3D>
         </Suspense>
       </div>
@@ -194,13 +124,12 @@ export default function Showcase() {
 
       {/* Card */}
       <motion.div
-        ref={cardRef}
         initial={{ scale: 0.92, opacity: 0, y: 40 }}
         whileInView={{ scale: 1, opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 w-full max-w-4xl mx-auto px-3 sm:px-4"
-        style={{ transformStyle: 'preserve-3d', transition: 'transform 0.1s ease-out' }}
+        style={{ transformStyle: 'preserve-3d' }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -222,16 +151,41 @@ export default function Showcase() {
             className="w-full group"
           >
             <div
-              className="relative rounded-card overflow-hidden transition-all duration-700"
+              ref={tiltRef}
+              className="relative rounded-card overflow-hidden card-tilt"
               style={{
                 background: 'linear-gradient(135deg, #0d0b08 0%, #0a0806 40%, #050505 100%)',
                 boxShadow: isHovered
-                  ? '0 0 120px rgba(212,175,55,0.12), 0 0 200px rgba(212,175,55,0.04), inset 0 1px 0 rgba(212,175,55,0.1)'
+                  ? '0 0 120px rgba(212,175,55,0.12), 0 0 200px rgba(212,175,55,0.04), 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(212,175,55,0.15)'
                   : '0 0 60px rgba(212,175,55,0.04), inset 0 1px 0 rgba(212,175,55,0.1)',
+                border: isHovered ? '1px solid rgba(212,175,55,0.15)' : '1px solid rgba(212,175,55,0.06)',
+                transformStyle: 'preserve-3d',
               }}
             >
+              {/* BETA Badge */}
+              <div className="absolute top-4 right-4 z-20">
+                <div className="relative px-4 py-1.5 rounded-full overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(212,175,55,0.2), rgba(242,210,122,0.1))',
+                    border: '1px solid rgba(212,175,55,0.4)',
+                    boxShadow: '0 0 25px rgba(212,175,55,0.15), inset 0 0 15px rgba(212,175,55,0.05)',
+                  }}
+                >
+                  <div className="absolute inset-0 animate-shimmer-gold"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
+                      backgroundSize: '200% 100%',
+                    }}
+                  />
+                  <span className="relative font-heading text-[10px] font-bold tracking-[0.25em] uppercase gold-gradient">
+                    BETA
+                  </span>
+                  <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-gold animate-ping opacity-60" />
+                </div>
+              </div>
+
               <div className="flex flex-col md:flex-row min-h-[50vh] md:min-h-[45vh]">
-                {/* Left: Logo */}
+                {/* Left: Project Icon */}
                 <div className="relative w-full md:w-[45%] flex items-center justify-center p-6 md:p-10 min-h-[200px] md:min-h-0">
                   <div className="absolute inset-5 md:inset-7 rounded-2xl pointer-events-none"
                     style={{ border: '1px solid rgba(212,175,55,0.08)' }}
@@ -260,7 +214,7 @@ export default function Showcase() {
                     />
                   </div>
                   <div className="relative z-10">
-                    <CardCanvas icon={project.icon} logo={project.logo} />
+                    <ProjectIcon icon={project.icon} />
                   </div>
                 </div>
 
@@ -301,9 +255,30 @@ export default function Showcase() {
                       </motion.div>
                     )}
 
-                    {/* Live Status Bar */}
+                    {/* Beta Status Bar */}
                     <motion.div custom={4} variants={item} style={{ perspective: '320px' }}>
-                      <LiveIndicator />
+                      <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all duration-300 cursor-default"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(242,210,122,0.03))',
+                          border: '1px solid rgba(212,175,55,0.1)',
+                        }}
+                      >
+                        <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(212,175,55,0.08)' }}>
+                          <motion.div
+                            className="h-full rounded-full"
+                            style={{
+                              background: 'linear-gradient(90deg, #D4AF37, #F2D27A, #D4AF37)',
+                              backgroundSize: '200% 100%',
+                            }}
+                            animate={{ backgroundPosition: ['0% 0%', '200% 0%'] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                          />
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_6px_rgba(251,191,36,0.5)]" />
+                          <span className="font-body text-[9px] uppercase tracking-[0.2em] text-amber-400/70 font-medium">Beta</span>
+                        </div>
+                      </div>
                     </motion.div>
 
                     <motion.div custom={5} variants={item} className="flex items-center justify-between pt-3 sm:pt-4 mt-1 sm:mt-2"
@@ -321,12 +296,15 @@ export default function Showcase() {
                           ))}
                         </div>
                       )}
-                      <a href={project.link} target="_blank" rel="noopener noreferrer"
-                        className="group/btn flex-shrink-0 inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-full ml-2 sm:ml-3 transition-all duration-300 hover:bg-gold/10"
-                        style={{ border: '1px solid rgba(212,175,55,0.2)', color: 'rgba(212,175,55,0.8)' }}
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/btn flex-shrink-0 inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 rounded-full ml-2 sm:ml-3 transition-all duration-400 hover:bg-gold/15 hover:shadow-[0_0_30px_rgba(212,175,55,0.12)] hover:border-gold/40"
+                        style={{ border: '1px solid rgba(212,175,55,0.25)', color: 'rgba(212,175,55,0.9)' }}
                       >
-                        <span className="font-body text-xs font-medium tracking-wider uppercase">Visit site</span>
-                        <svg className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span className="font-body text-xs font-semibold tracking-wider uppercase">Visit site</span>
+                        <svg className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                       </a>

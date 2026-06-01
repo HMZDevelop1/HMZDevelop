@@ -128,7 +128,7 @@ const translations = {
     },
     showcase: {
       projects: [
-        { title: 'LOOKING2FLYY', category: 'Premium Hair Studio', icon: '💇‍♀️', desc: 'A bold digital identity crafted with modern visuals, smooth user experience, and premium brand presence.', link: 'https://looking2flyybymkash.vercel.app', logo: '/images/looking2flyy-logo.png', tags: ['Locs', 'Braids', 'Extensions', 'Online Booking'], features: ['Online Booking', 'Service Menu', 'Gallery', 'Location', 'Responsive'] },
+        { title: 'Lockingg', category: 'Digital Security Platform', icon: '🔐', beta: true, desc: 'A next-generation digital locking and security platform built with cutting-edge technology, intuitive UX, and robust architecture for modern access management.', link: 'https://lockingg-2-flyy.vercel.app', logo: null, tags: ['Security', 'Access Control', 'Real-time', 'Dashboard'], features: ['Secure Auth', 'Real-time Monitoring', 'Access Management', 'Analytics', 'Responsive'] },
       ],
     },
     why: {
@@ -325,7 +325,7 @@ const translations = {
     },
     showcase: {
       projects: [
-        { title: 'LOOKING2FLYY', category: 'Salon de Coiffure Premium', icon: '💇‍♀️', desc: 'Une identité digitale audacieuse conçue avec des visuels modernes, une expérience utilisateur fluide et une présence de marque premium.', link: 'https://looking2flyybymkash.vercel.app', logo: '/images/looking2flyy-logo.png', tags: ['Locs', 'Tresses', 'Extensions', 'Réservation'], features: ['Réservation', 'Menu Services', 'Galerie', 'Localisation', 'Responsive'] },
+        { title: 'Lockingg', category: 'Plateforme de Sécurité Digitale', icon: '🔐', beta: true, desc: 'Une plateforme de verrouillage et de sécurité digitale de nouvelle génération construite avec une technologie de pointe, un UX intuitif et une architecture robuste.', link: 'https://lockingg-2-flyy.vercel.app', logo: null, tags: ['Sécurité', 'Contrôle d\'accès', 'Temps réel', 'Tableau de bord'], features: ['Auth Sécurisée', 'Monitoring', 'Gestion d\'accès', 'Analytique', 'Responsive'] },
       ],
     },
     why: {

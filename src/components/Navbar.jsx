@@ -4,7 +4,7 @@ import { useLanguage } from '../i18n/LanguageContext'
 import CurrencySelector from './CurrencySelector'
 
 const navLinks = [
-  { labelKey: 'home', href: '#' },
+  { labelKey: 'home', href: '#hero' },
   { labelKey: 'process', href: '#process' },
   { labelKey: 'projects', href: '#showcase' },
   { labelKey: 'services', href: '#services' },
@@ -22,7 +22,7 @@ const itemVariants = {
 export default function Navbar() {
   const { t, lang, toggleLang } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
-  const [active, setActive] = useState('')
+  const [active, setActive] = useState('home')
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
@@ -32,16 +32,31 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const sections = navLinks.map(l => l.href === '#' ? null : document.querySelector(l.href)).filter(Boolean)
-    const observer = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          setActive(e.target.id || 'home')
+    const sectionIds = ['hero', 'process', 'showcase', 'services', 'contact']
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY + 120
+      let current = 'home'
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id)
+        if (!el) continue
+        const offsetTop = el.offsetTop
+        const offsetBottom = offsetTop + el.offsetHeight
+        if (scrollY >= offsetTop && scrollY < offsetBottom) {
+          current = id === 'hero' ? 'home' : id
+          break
         }
       }
-    }, { threshold: 0.3, rootMargin: '-80px 0px' })
-    sections.forEach(s => s && observer.observe(s))
-    return () => observer.disconnect()
+
+      if (scrollY < 100) current = 'home'
+
+      setActive(current)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
@@ -82,7 +97,7 @@ export default function Navbar() {
 
         <div className="max-w-premium flex items-center justify-between h-16 md:h-20">
           <a
-            href="#"
+            href="#hero"
             className="group flex items-center"
             style={{ perspective: '800px' }}
           >
@@ -107,7 +122,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center" style={{ perspective: '1200px' }}>
             <div className="flex items-center gap-0.5">
               {navLinks.map((link, i) => {
-                const isActive = active === (link.href === '#' ? 'home' : link.href.slice(1))
+                const isActive = active === (link.href === '#hero' ? 'home' : link.href.slice(1))
                 return (
                   <motion.a
                     key={link.labelKey}

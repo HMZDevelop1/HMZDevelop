@@ -3,28 +3,51 @@ import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLanguage } from '../i18n/LanguageContext'
+import useTilt from '../hooks/useTilt'
+
+function WhyCard({ feature, idx }) {
+  const tiltRef = useTilt({ perspective: 800, maxTilt: 4, scale: 1.02 })
+
+  return (
+    <motion.div
+      ref={tiltRef}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className="glass-luxury rounded-card p-6 md:p-7 text-center group cursor-default card-tilt"
+      style={{ transformStyle: 'preserve-3d' }}
+    >
+      <div className="font-heading text-4xl md:text-5xl font-bold gold-gradient mb-3">
+        {feature.num}
+      </div>
+      <h3 className="font-heading text-base md:text-lg font-semibold text-white mb-2 group-hover:gold-gradient-heavy transition-all duration-300">
+        {feature.title}
+      </h3>
+      <p className="font-body text-xs sm:text-sm text-muted/60 leading-relaxed group-hover:text-muted/80 transition-colors duration-300">
+        {feature.desc}
+      </p>
+    </motion.div>
+  )
+}
 
 export default function WhyHMZ() {
   const { t } = useLanguage()
   const sectionRef = useRef(null)
-  const listRef = useRef(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const items = listRef.current?.querySelectorAll('.why-item')
-      if (items) {
-        gsap.fromTo(items,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: 'power3.out',
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: 'top 70%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        )
-      }
+      gsap.fromTo('.why-heading-reveal',
+        { opacity: 0, y: 30, scale: 0.96 },
+        {
+          opacity: 1, y: 0, scale: 1, duration: 0.8, delay: 0.15, ease: 'power4.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      )
     }, sectionRef)
     return () => ctx.revert()
   }, [])
@@ -70,19 +93,9 @@ export default function WhyHMZ() {
           </motion.p>
         </div>
 
-        <div ref={listRef} className="max-w-4xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {t.why.features.map((feature) => (
-            <div key={feature.num} className="why-item glass-luxury rounded-card p-6 md:p-7 text-center transition-all duration-500 group cursor-default">
-              <div className="font-heading text-4xl md:text-5xl font-bold gold-gradient mb-3">
-                {feature.num}
-              </div>
-              <h3 className="font-heading text-base md:text-lg font-semibold text-white mb-2 group-hover:gold-gradient-heavy transition-all duration-300">
-                {feature.title}
-              </h3>
-              <p className="font-body text-xs sm:text-sm text-muted/60 leading-relaxed group-hover:text-muted/80 transition-colors duration-300">
-                {feature.desc}
-              </p>
-            </div>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {t.why.features.map((feature, idx) => (
+            <WhyCard key={feature.num} feature={feature} idx={idx} />
           ))}
         </div>
       </div>

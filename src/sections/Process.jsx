@@ -3,6 +3,34 @@ import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLanguage } from '../i18n/LanguageContext'
+import useTilt from '../hooks/useTilt'
+
+function ProcessStep({ step, idx, stepColors }) {
+  const tiltRef = useTilt({ perspective: 800, maxTilt: 4, scale: 1.02 })
+  const { t } = useLanguage()
+
+  return (
+    <motion.div
+      ref={tiltRef}
+      initial={{ opacity: 0, y: 60, scale: 0.93 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className="glass-luxury rounded-card p-6 md:p-7 text-center group cursor-default card-tilt"
+      style={{ transformStyle: 'preserve-3d' }}
+    >
+      <div className={`inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br ${stepColors[idx]} mb-5 shadow-lg shadow-gold/10 group-hover:shadow-gold/20 group-hover:scale-110 transition-all duration-500`}>
+        <span className="font-heading text-sm md:text-base font-bold text-black">{step.num}</span>
+      </div>
+      <h3 className="font-heading text-base md:text-lg font-semibold text-white mb-3 group-hover:gold-gradient-heavy transition-all duration-300">
+        {step.title}
+      </h3>
+      <p className="font-body text-xs sm:text-sm text-muted/60 leading-relaxed max-w-xs mx-auto group-hover:text-muted/80 transition-colors duration-300">
+        {step.desc}
+      </p>
+    </motion.div>
+  )
+}
 
 const stepColors = [
   'from-gold to-soft-gold',
@@ -16,13 +44,10 @@ export default function Process() {
   const { t } = useLanguage()
   const sectionRef = useRef(null)
   const progressRef = useRef(null)
-  const stepsRef = useRef([])
-  const cardRefs = useRef([])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const progress = progressRef.current
-      const stepEls = stepsRef.current
 
       gsap.fromTo('.process-kicker-reveal',
         { opacity: 0, y: 30, filter: 'blur(4px)' },
@@ -61,35 +86,6 @@ export default function Process() {
           },
         }
       )
-
-      stepEls.forEach((el) => {
-        gsap.fromTo(el,
-          { opacity: 0, y: 60, scale: 0.93 },
-          {
-            opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power4.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        )
-      })
-
-      cardRefs.current.forEach((card) => {
-        if (!card) return
-        const handleMove = (e) => {
-          const rect = card.getBoundingClientRect()
-          const x = (e.clientX - rect.left) / rect.width - 0.5
-          const y = (e.clientY - rect.top) / rect.height - 0.5
-          card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${y * -6}deg) translateZ(10px)`
-        }
-        const handleLeave = () => {
-          card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateZ(0px)'
-        }
-        card.addEventListener('mousemove', handleMove)
-        card.addEventListener('mouseleave', handleLeave)
-      })
     }, sectionRef)
 
     return () => ctx.revert()
@@ -150,22 +146,7 @@ export default function Process() {
         {/* Steps */}
         <div className="grid md:grid-cols-5 gap-5 md:gap-6">
           {t.process.steps.map((step, idx) => (
-            <div
-              key={step.num}
-              ref={(el) => { stepsRef.current[idx] = el; cardRefs.current[idx] = el; }}
-              className="glass-luxury rounded-card p-6 md:p-7 text-center transition-all duration-500 group cursor-default"
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              <div className={`inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br ${stepColors[idx]} mb-5 shadow-lg shadow-gold/10 group-hover:shadow-gold/20 group-hover:scale-110 transition-all duration-500`}>
-                <span className="font-heading text-sm md:text-base font-bold text-black">{step.num}</span>
-              </div>
-              <h3 className="font-heading text-base md:text-lg font-semibold text-white mb-3 group-hover:gold-gradient-heavy transition-all duration-300">
-                {step.title}
-              </h3>
-              <p className="font-body text-xs sm:text-sm text-muted/60 leading-relaxed max-w-xs mx-auto group-hover:text-muted/80 transition-colors duration-300">
-                {step.desc}
-              </p>
-            </div>
+            <ProcessStep key={step.num} step={step} idx={idx} stepColors={stepColors} />
           ))}
         </div>
       </div>

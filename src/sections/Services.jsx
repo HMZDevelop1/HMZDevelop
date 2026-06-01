@@ -4,6 +4,123 @@ import MagneticButton from '../components/MagneticButton'
 import GlowCard from '../components/GlowCard'
 import { useLanguage } from '../i18n/LanguageContext'
 import { useCurrency } from '../i18n/CurrencyContext'
+import useTilt from '../hooks/useTilt'
+
+function ServiceCard({ service, icon, serviceIdx, popular }) {
+  const tiltRef = useTilt({ perspective: 1000, maxTilt: 5, scale: 1.02 })
+  const { t } = useLanguage()
+  const { formatPrice } = useCurrency()
+
+  return (
+    <div ref={tiltRef} style={{ transformStyle: 'preserve-3d' }}>
+      <GlowCard
+        glowColor="gold"
+        customSize
+        className={`service-card group ${popular ? 'lg:-translate-y-2' : ''}`}
+      >
+        {popular && (
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold to-soft-gold text-black font-heading text-[10px] font-semibold px-5 py-1.5 rounded-full uppercase tracking-wider z-20 whitespace-nowrap shadow-lg shadow-gold/30 animate-gold-pulse">
+            {t.services.popular}
+          </div>
+        )}
+
+        <div
+          className={`relative h-full flex flex-col rounded-card overflow-hidden transition-all duration-500 hover:scale-[1.02] card-glow-border ${
+            popular
+              ? 'ring-1 ring-gold/40 gold-glow-lg'
+              : ''
+          }`}
+          style={{
+            background: popular
+              ? 'linear-gradient(145deg, rgba(18,17,20,0.97), rgba(10,10,12,0.99))'
+              : 'linear-gradient(145deg, rgba(11,11,13,0.92), rgba(5,5,5,0.96))',
+            boxShadow: popular
+              ? '0 0 60px rgba(212,175,55,0.1), 0 0 120px rgba(212,175,55,0.03), inset 0 1px 0 rgba(212,175,55,0.15)'
+              : '0 0 30px rgba(212,175,55,0.02), inset 0 1px 0 rgba(212,175,55,0.06)',
+            border: popular
+              ? '1px solid rgba(212,175,55,0.15)'
+              : '1px solid rgba(212,175,55,0.06)',
+          }}
+        >
+          {/* Premium gradient top accent */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/70 to-transparent opacity-90" />
+
+          {/* Background glow for popular */}
+          {popular && (
+            <>
+              <div className="absolute -top-20 -right-20 w-44 h-44 rounded-full"
+                style={{
+                  background: 'radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%)',
+                  filter: 'blur(40px)',
+                }}
+              />
+              <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full"
+                style={{
+                  background: 'radial-gradient(circle, rgba(242,210,122,0.08), transparent 70%)',
+                  filter: 'blur(30px)',
+                }}
+              />
+            </>
+          )}
+
+          {/* Icon */}
+          <div className="text-center pt-8 pb-5">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-500 text-gold group-hover:shadow-xl group-hover:shadow-gold/20"
+              style={{ background: 'rgba(212,175,55,0.08)' }}
+            >
+              {icon}
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="px-6 flex-1 flex flex-col">
+            <h3 className="font-heading text-lg md:text-xl font-semibold text-white text-center group-hover:gold-gradient-heavy transition-all duration-300">
+              {service.title}
+            </h3>
+
+            <p className="font-body text-xs text-muted/70 text-center mt-2 leading-relaxed mb-5 max-w-[260px] mx-auto">
+              {service.desc}
+            </p>
+
+            {/* Features */}
+            <div className="flex-1 space-y-3 mb-6">
+              {service.features.map((feat) => (
+                <div key={feat} className="flex items-start gap-2.5 group/feat">
+                  <span className="text-gold/60 group-hover/feat:text-gold transition-colors duration-300 mt-0.5 text-xs flex-shrink-0">✦</span>
+                  <span className="font-body text-xs text-white/50 group-hover/feat:text-white/70 leading-relaxed transition-colors duration-300">{feat}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Price & CTA */}
+          <div className="px-6 pb-8">
+            <div className="text-center mb-5">
+              {service.tag && (
+                <div className="font-body text-[10px] text-muted/50 uppercase tracking-wider font-medium">{service.tag}</div>
+              )}
+              <div className="font-heading text-2xl md:text-3xl font-bold gold-gradient-heavy mt-1">{formatPrice(service.basePrice)}</div>
+              {service.tag && <div className="font-body text-[9px] text-muted/40 uppercase tracking-wider mt-1">{t.services.oneTime}</div>}
+            </div>
+
+            <MagneticButton
+              href="#contact"
+              variant={popular ? 'primary' : 'outline'}
+              className={`w-full px-5 py-3.5 rounded-full text-xs tracking-widest uppercase text-center font-semibold ${
+                popular ? 'shadow-lg shadow-gold/25 gold-glow' : ''
+              }`}
+            >
+              {popular && (
+                <span className="mr-1.5">✦</span>
+              )}
+              {t.services.cta}
+            </MagneticButton>
+          </div>
+        </div>
+      </GlowCard>
+    </div>
+  )
+}
 
 const serviceIcons = [
   <svg key="starter" className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
@@ -33,7 +150,6 @@ export default function Services() {
   const { t } = useLanguage()
   const { formatPrice } = useCurrency()
   const sectionRef = useRef(null)
-  const cardRefs = useRef([])
 
   useEffect(() => {
     const el = sectionRef.current
@@ -41,7 +157,7 @@ export default function Services() {
 
     const dotsContainer = el.querySelector('.services-dots')
     if (dotsContainer) {
-      for (let i = 0; i < 25; i++) {
+      for (let i = 0; i < 15; i++) {
         const dot = document.createElement('div')
         const size = Math.random() * 2.5 + 1
         const x = Math.random() * 100
@@ -85,21 +201,6 @@ export default function Services() {
           scrollTrigger: { trigger: el, start: 'top 70%', toggleActions: 'play none none reverse' },
         }
       )
-
-      cardRefs.current.forEach((card) => {
-        if (!card) return
-        const handleMove = (e) => {
-          const rect = card.getBoundingClientRect()
-          const x = (e.clientX - rect.left) / rect.width - 0.5
-          const y = (e.clientY - rect.top) / rect.height - 0.5
-          card.style.transform = `perspective(1000px) rotateY(${x * 8}deg) rotateX(${y * -8}deg) translateZ(20px)`
-        }
-        const handleLeave = () => {
-          card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)'
-        }
-        card.addEventListener('mousemove', handleMove)
-        card.addEventListener('mouseleave', handleLeave)
-      })
     }, el)
 
     return () => ctx.revert()
@@ -154,117 +255,13 @@ export default function Services() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {t.services.list.map((service, idx) => (
-            <div
+            <ServiceCard
               key={service.title}
-              ref={(el) => (cardRefs.current[idx] = el)}
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-            <GlowCard
-              glowColor="gold"
-              customSize
-              className={`service-card group ${service.popular ? 'lg:-translate-y-2' : ''}`}
-            >
-              {service.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold to-soft-gold text-black font-heading text-[10px] font-semibold px-5 py-1.5 rounded-full uppercase tracking-wider z-20 whitespace-nowrap shadow-lg shadow-gold/30 animate-gold-pulse">
-                  {t.services.popular}
-                </div>
-              )}
-
-              <div
-                className={`relative h-full flex flex-col rounded-card overflow-hidden transition-all duration-700 hover:scale-[1.02] ${
-                  service.popular
-                    ? 'ring-1 ring-gold/40 gold-glow-lg'
-                    : 'hover:border-gold/20'
-                }`}
-                style={{
-                  background: service.popular
-                    ? 'linear-gradient(145deg, rgba(18,17,20,0.97), rgba(10,10,12,0.99))'
-                    : 'linear-gradient(145deg, rgba(11,11,13,0.92), rgba(5,5,5,0.96))',
-                  boxShadow: service.popular
-                    ? '0 0 60px rgba(212,175,55,0.1), 0 0 120px rgba(212,175,55,0.03), inset 0 1px 0 rgba(212,175,55,0.15)'
-                    : '0 0 30px rgba(212,175,55,0.02), inset 0 1px 0 rgba(212,175,55,0.06)',
-                  border: service.popular
-                    ? '1px solid rgba(212,175,55,0.15)'
-                    : '1px solid rgba(212,175,55,0.06)',
-                }}
-              >
-                {/* Premium gradient top accent */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/70 to-transparent opacity-90" />
-
-                {/* Background glow for popular */}
-                {service.popular && (
-                  <>
-                    <div className="absolute -top-20 -right-20 w-44 h-44 rounded-full"
-                      style={{
-                        background: 'radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%)',
-                        filter: 'blur(40px)',
-                      }}
-                    />
-                    <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full"
-                      style={{
-                        background: 'radial-gradient(circle, rgba(242,210,122,0.08), transparent 70%)',
-                        filter: 'blur(30px)',
-                      }}
-                    />
-                  </>
-                )}
-
-                {/* Icon */}
-                <div className="text-center pt-8 pb-5">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-500 text-gold group-hover:shadow-xl group-hover:shadow-gold/20"
-                    style={{ background: 'rgba(212,175,55,0.08)' }}
-                  >
-                    {serviceIcons[idx] || service.icon}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="px-6 flex-1 flex flex-col">
-                  <h3 className="font-heading text-lg md:text-xl font-semibold text-white text-center group-hover:gold-gradient-heavy transition-all duration-300">
-                    {service.title}
-                  </h3>
-
-                  <p className="font-body text-xs text-muted/70 text-center mt-2 leading-relaxed mb-5 max-w-[260px] mx-auto">
-                    {service.desc}
-                  </p>
-
-                  {/* Features */}
-                  <div className="flex-1 space-y-3 mb-6">
-                    {service.features.map((feat) => (
-                      <div key={feat} className="flex items-start gap-2.5 group/feat">
-                        <span className="text-gold/60 group-hover/feat:text-gold transition-colors duration-300 mt-0.5 text-xs flex-shrink-0">✦</span>
-                        <span className="font-body text-xs text-white/50 group-hover/feat:text-white/70 leading-relaxed transition-colors duration-300">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Price & CTA */}
-                <div className="px-6 pb-8">
-                  <div className="text-center mb-5">
-                    {service.tag && (
-                      <div className="font-body text-[10px] text-muted/50 uppercase tracking-wider font-medium">{service.tag}</div>
-                    )}
-                    <div className="font-heading text-2xl md:text-3xl font-bold gold-gradient-heavy mt-1">{formatPrice(service.basePrice)}</div>
-                    {service.tag && <div className="font-body text-[9px] text-muted/40 uppercase tracking-wider mt-1">{t.services.oneTime}</div>}
-                  </div>
-
-                  <MagneticButton
-                    href="#contact"
-                    variant={service.popular ? 'primary' : 'outline'}
-                    className={`w-full px-5 py-3.5 rounded-full text-xs tracking-widest uppercase text-center font-semibold ${
-                      service.popular ? 'shadow-lg shadow-gold/25 gold-glow' : ''
-                    }`}
-                  >
-                    {service.popular && (
-                      <span className="mr-1.5">✦</span>
-                    )}
-                    {t.services.cta}
-                  </MagneticButton>
-                </div>
-              </div>
-            </GlowCard>
-            </div>
+              service={service}
+              icon={serviceIcons[idx] || service.icon}
+              serviceIdx={idx}
+              popular={service.popular}
+            />
           ))}
         </div>
       </div>

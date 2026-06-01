@@ -3,10 +3,10 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 const CurrencyContext = createContext()
 
 const CURRENCIES = {
-  CAD: { symbol: 'CAD', label: 'Canadian Dollar', flag: '🇨🇦' },
-  USD: { symbol: 'USD', label: 'US Dollar', flag: '🇺🇸' },
-  EUR: { symbol: 'EUR', label: 'Euro', flag: '🇪🇺' },
-  MAD: { symbol: 'MAD', label: 'Moroccan Dirham', flag: '🇲🇦' },
+  CAD: { symbol: 'CAD', label: 'Canadian Dollar', flag: '🇨🇦', currencySymbol: '$' },
+  USD: { symbol: 'USD', label: 'US Dollar', flag: '🇺🇸', currencySymbol: '$' },
+  EUR: { symbol: 'EUR', label: 'Euro', flag: '🇪🇺', currencySymbol: '€' },
+  MAD: { symbol: 'MAD', label: 'Moroccan Dirham', flag: '🇲🇦', currencySymbol: 'د.م.' },
 }
 
 const STORAGE_KEY = 'hmz-currency'
@@ -89,7 +89,8 @@ export function CurrencyProvider({ children }) {
   const formatPrice = useCallback((cadPrice) => {
     if (cadPrice === null || cadPrice === undefined) return 'Custom Quote'
     const converted = convertPrice(cadPrice)
-    return `$${converted} ${currency}`
+    const symbol = CURRENCIES[currency]?.currencySymbol || '$'
+    return `${symbol}${converted} ${currency}`
   }, [convertPrice, currency])
 
   return (

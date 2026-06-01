@@ -2,7 +2,7 @@ import React from 'react'
 import { useLanguage } from '../i18n/LanguageContext'
 
 const footerLinkKeys = [
-  { key: 'home', href: '#' },
+  { key: 'home', href: '#hero' },
   { key: 'process', href: '#process' },
   { key: 'projects', href: '#showcase' },
   { key: 'services', href: '#services' },
@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-          <a href="#" className="inline-flex items-center mb-4 group">
+          <a href="#hero" className="inline-flex items-center mb-4 group">
             <span className="font-heading text-2xl font-bold tracking-tight gold-gradient-heavy" style={{ textShadow: '0 0 40px rgba(212,175,55,0.25), 0 0 80px rgba(212,175,55,0.08)' }}>
               HMZ
             </span>
