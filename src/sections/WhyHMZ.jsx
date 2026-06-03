@@ -18,13 +18,13 @@ function WhyCard({ feature, idx }) {
       className="glass-luxury rounded-card p-6 md:p-7 text-center group cursor-default card-tilt"
       style={{ transformStyle: 'preserve-3d' }}
     >
-      <div className="font-heading text-4xl md:text-5xl font-bold gold-gradient mb-3">
+      <div className="heading-1 gold-gradient mb-3 font-bold">
         {feature.num}
       </div>
-      <h3 className="font-heading text-base md:text-lg font-semibold text-white mb-2 group-hover:gold-gradient-heavy transition-all duration-300">
+      <h3 className="heading-4 text-white mb-2 group-hover:gold-gradient-heavy transition-all duration-300">
         {feature.title}
       </h3>
-      <p className="font-body text-xs sm:text-sm text-muted/60 leading-relaxed group-hover:text-muted/80 transition-colors duration-300">
+      <p className="body-sm text-muted/60 group-hover:text-muted/80 transition-colors duration-300">
         {feature.desc}
       </p>
     </motion.div>
@@ -68,7 +68,7 @@ export default function WhyHMZ() {
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-accent text-gold text-lg italic tracking-wide block"
+            className="accent-text text-gold text-lg block"
           >
             {t.why.kicker}
           </motion.span>
@@ -77,7 +77,7 @@ export default function WhyHMZ() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading text-4xl md:text-6xl font-semibold text-white mt-4 leading-tight"
+            className="heading-1 text-white mt-4"
           >
             {t.why.heading}
             <span className="gold-gradient block mt-2">{t.why.headingHighlight}</span>
@@ -87,7 +87,7 @@ export default function WhyHMZ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="font-body text-muted mt-6 max-w-lg mx-auto leading-relaxed"
+            className="body-base text-muted mt-6 max-w-lg mx-auto"
           >
             {t.why.sub}
           </motion.p>

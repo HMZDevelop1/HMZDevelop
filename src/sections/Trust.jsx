@@ -13,13 +13,13 @@ function TrustCard({ stat, idx }) {
       className="trust-card glass-card rounded-card p-6 text-center card-glow-border group"
       style={{ transformStyle: 'preserve-3d' }}
     >
-      <div className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold gold-gradient mb-2">
+      <div className="heading-1 gold-gradient font-bold mb-2">
         {stat.value}
       </div>
-      <div className="font-body text-sm font-medium text-white mb-1 group-hover:text-gold transition-colors">
+      <div className="body-sm font-medium text-white mb-1 group-hover:text-gold transition-colors">
         {stat.label}
       </div>
-      <div className="font-body text-xs text-muted leading-relaxed">
+      <div className="body-sm text-muted">
         {stat.desc}
       </div>
     </div>
@@ -62,8 +62,8 @@ export default function Trust() {
           transition={{ duration: 0.6 }}
           className="trust-heading-reveal text-center mb-16"
         >
-          <span className="font-accent text-gold text-lg italic tracking-wide">{t.trust.kicker}</span>
-          <h2 className="font-heading text-3xl md:text-5xl font-semibold text-white mt-2">
+          <span className="accent-text text-gold text-lg">{t.trust.kicker}</span>
+          <h2 className="heading-2 text-white mt-2">
             {t.trust.heading}
           </h2>
         </motion.div>

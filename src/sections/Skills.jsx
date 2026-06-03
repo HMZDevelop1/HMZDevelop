@@ -101,7 +101,7 @@ function SkillBar({ name, level, delay }) {
 
   return (
     <div className="group flex items-center gap-3">
-      <span className="font-body text-xs text-muted group-hover:text-white transition-colors duration-300 w-28 flex-shrink-0 text-right">
+      <span className="body-sm text-muted group-hover:text-white transition-colors duration-300 w-28 flex-shrink-0 text-right">
         {name}
       </span>
       <div className="flex-1 h-[3px] bg-white/5 rounded-full overflow-hidden relative">
@@ -115,7 +115,7 @@ function SkillBar({ name, level, delay }) {
           style={{ width: `${level}%`, opacity: 0.3 }}
         />
       </div>
-      <span className="font-body text-[10px] text-gold/50 group-hover:text-gold transition-colors duration-300 w-6 text-right tabular-nums">
+      <span className="body-sm text-gold/50 group-hover:text-gold transition-colors duration-300 w-6 text-right tabular-nums">
         {level}%
       </span>
     </div>
@@ -156,7 +156,7 @@ function CategoryCard({ category, index }) {
             >
               {category.icon}
             </div>
-            <h3 className="font-heading text-lg text-white font-semibold tracking-tight">
+            <h3 className="heading-4 text-white">
               {category.title}
             </h3>
           </div>
@@ -294,14 +294,14 @@ export default function Skills() {
             transition={{ duration: 0.6 }}
             className="skills-heading-line"
           >
-            <span className="font-accent text-gold text-lg italic tracking-wide">
+            <span className="accent-text text-gold text-lg">
               {t.skills.kicker}
             </span>
-            <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-semibold text-white mt-4 leading-tight">
+            <h2 className="heading-1 text-white mt-4">
               {t.skills.heading1}
               <span className="gold-gradient block">{t.skills.heading2}</span>
             </h2>
-            <p className="font-body text-muted mt-6 max-w-lg mx-auto leading-relaxed">
+            <p className="body-base text-muted mt-6 max-w-lg mx-auto">
               {t.skills.sub}
             </p>
           </motion.div>

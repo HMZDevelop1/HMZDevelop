@@ -22,10 +22,10 @@ function ProcessStep({ step, idx, stepColors }) {
       <div className={`inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br ${stepColors[idx]} mb-5 shadow-lg shadow-gold/10 group-hover:shadow-gold/20 group-hover:scale-110 transition-all duration-500`}>
         <span className="font-heading text-sm md:text-base font-bold text-black">{step.num}</span>
       </div>
-      <h3 className="font-heading text-base md:text-lg font-semibold text-white mb-3 group-hover:gold-gradient-heavy transition-all duration-300">
+      <h3 className="heading-4 text-white mb-3 group-hover:gold-gradient-heavy transition-all duration-300">
         {step.title}
       </h3>
-      <p className="font-body text-xs sm:text-sm text-muted/60 leading-relaxed max-w-xs mx-auto group-hover:text-muted/80 transition-colors duration-300">
+      <p className="body-sm text-muted/60 max-w-xs mx-auto group-hover:text-muted/80 transition-colors duration-300">
         {step.desc}
       </p>
     </motion.div>
@@ -119,7 +119,7 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="process-kicker-reveal block font-accent text-gold text-lg italic tracking-wide mb-3"
+            className="process-kicker-reveal block accent-text text-gold text-lg mb-3"
           >
             {t.process.kicker}
           </motion.span>
@@ -128,7 +128,7 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="process-heading-reveal font-heading text-4xl md:text-6xl lg:text-7xl font-semibold gold-gradient-heavy leading-tight"
+            className="process-heading-reveal heading-1 gold-gradient-heavy text-glow"
           >
             {t.process.heading}
           </motion.h2>

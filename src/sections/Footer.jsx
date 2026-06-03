@@ -23,23 +23,23 @@ export default function Footer() {
             </span>
             <span className="font-heading text-2xl font-bold tracking-tight text-white/95 group-hover:text-white transition-colors" style={{ textShadow: '0 0 30px rgba(255,255,255,0.08)' }}>Develop</span>
           </a>
-            <p className="font-body text-sm text-muted leading-relaxed max-w-xs">
+            <p className="body-base text-muted max-w-xs">
               {t.footer.tagline}
             </p>
-            <p className="font-accent text-gold text-sm italic mt-2">
+            <p className="accent-text text-gold mt-2">
               {t.footer.motto}
             </p>
           </div>
 
           {/* Nav */}
           <div>
-            <h4 className="font-body text-xs text-muted uppercase tracking-widest mb-4">{t.footer.navTitle}</h4>
+            <h4 className="label-sm text-muted mb-4">{t.footer.navTitle}</h4>
             <div className="flex flex-col gap-2">
               {footerLinkKeys.map((link) => (
                 <a
                   key={link.key}
                   href={link.href}
-                  className="font-body text-sm text-white/60 hover:text-gold transition-colors"
+                  className="body-base text-white/60 hover:text-gold transition-colors"
                 >
                   {t.nav[link.key]}
                 </a>
@@ -54,14 +54,14 @@ export default function Footer() {
                 <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75" />
                 <span className="relative rounded-full w-2 h-2 bg-green-400" />
               </span>
-              <span className="font-body text-xs text-muted uppercase tracking-widest">Available for projects</span>
+              <span className="label-sm text-muted">Available for projects</span>
             </div>
-            <p className="font-body text-sm text-white/40 leading-relaxed mb-4">
+            <p className="body-base text-white/40 mb-4">
               Open to new collaborations. Let&apos;s build something extraordinary together.
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 font-body text-xs text-gold hover:text-soft-gold transition-colors tracking-wide uppercase group"
+              className="inline-flex items-center gap-2 label-sm text-gold hover:text-soft-gold transition-colors group"
             >
               Start a project
               <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -77,10 +77,10 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-body text-xs text-muted">
+          <p className="body-sm text-muted">
             {t.footer.credit}
           </p>
-          <p className="font-body text-xs text-muted">
+          <p className="body-sm text-muted">
             &copy; {new Date().getFullYear()} HMZDevelop. All rights reserved.
           </p>
         </div>

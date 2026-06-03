@@ -22,7 +22,7 @@ export default function CurrencySelector() {
       <motion.button
         onClick={() => setOpen(!open)}
         whileHover={{ scale: 1.05 }}
-        className="flex items-center gap-1.5 font-heading text-[11px] tracking-wide font-semibold text-white/25 hover:text-gold px-2 py-2 rounded-lg transition-all duration-300"
+        className="flex items-center gap-1.5 heading-4 text-white/25 hover:text-gold px-2 py-2 rounded-lg transition-all duration-300"
         style={{ transformStyle: 'preserve-3d' }}
       >
         <span className="relative z-10 block" style={{ transform: 'translateZ(6px)' }}>
@@ -61,8 +61,8 @@ export default function CurrencySelector() {
                   }`}
                 >
                   <span className="text-sm">{info.flag}</span>
-                  <span className="font-heading text-[11px] font-semibold tracking-wide">{info.currencySymbol} {code}</span>
-                  <span className="font-body text-[10px] text-muted/50 ml-auto">{info.label}</span>
+                  <span className="heading-4">{info.currencySymbol} {code}</span>
+                  <span className="label-sm text-muted/50 ml-auto">{info.label}</span>
                 </button>
               ))}
             </div>

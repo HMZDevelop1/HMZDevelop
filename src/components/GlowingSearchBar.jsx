@@ -142,7 +142,7 @@ export default function GlowingSearchBar({ onClose }) {
             <div className="absolute top-full left-0 right-0 mt-2 rounded-xl overflow-hidden z-50 p-4"
               style={{ background: 'rgba(5,5,5,0.95)', border: '1px solid rgba(212,175,55,0.15)', backdropFilter: 'blur(20px)' }}
             >
-              <p className="font-body text-[10px] text-gold/40 uppercase tracking-widest mb-3 px-1">
+              <p className="label-sm text-gold/40 mb-3 px-1">
                 Try searching for:
               </p>
               <div className="flex flex-wrap gap-2">
@@ -152,7 +152,7 @@ export default function GlowingSearchBar({ onClose }) {
                     onClick={() => navigate(s.id)}
                     onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.4)' }}
                     onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.04)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.15)' }}
-                    className="font-body text-xs px-3 py-1.5 rounded-full capitalize transition-all duration-200"
+                    className="body-sm px-3 py-1.5 rounded-full capitalize transition-all duration-200"
                     style={{ background: 'rgba(212,175,55,0.04)', border: '1px solid rgba(212,175,55,0.15)', color: 'rgba(212,175,55,0.7)' }}
                   >
                     {s.id}
@@ -173,7 +173,7 @@ export default function GlowingSearchBar({ onClose }) {
                     }}
                     onMouseEnter={(e) => { e.currentTarget.style.color = '#D4AF37' }}
                     onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(212,175,55,0.4)' }}
-                    className="font-body text-[10px] tracking-wider uppercase transition-colors duration-200"
+                    className="label-sm transition-colors duration-200"
                     style={{ color: 'rgba(212,175,55,0.4)' }}
                   >
                     {tag}

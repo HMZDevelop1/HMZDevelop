@@ -152,7 +152,7 @@ export default function Navbar() {
                     <span
                       className={`relative z-10 block text-sm tracking-wide transition-all duration-300 ${
                         isActive
-                          ? 'gold-gradient font-semibold text-glow-gold'
+                          ? 'gold-gradient font-semibold'
                           : 'text-white/40 hover:text-white/80 font-medium'
                       }`}
                       style={{ transform: 'translateZ(16px)' }}

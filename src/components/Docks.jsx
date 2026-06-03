@@ -44,7 +44,7 @@ export default function Docks() {
         aria-label="Dark Mode"
       >
         <Moon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
-        <span className="font-body text-xs tracking-wider select-none">Dark</span>
+        <span className="label-sm select-none">Dark</span>
       </button>
 
       <button
@@ -60,7 +60,7 @@ export default function Docks() {
         aria-label="Light Mode"
       >
         <Sun className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
-        <span className="font-body text-xs tracking-wider select-none">Light</span>
+        <span className="label-sm select-none">Light</span>
       </button>
 
       <button
@@ -72,7 +72,7 @@ export default function Docks() {
         aria-label="View Work"
       >
         <Sparkles className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
-        <span className="font-body text-xs tracking-wider select-none">Work</span>
+        <span className="label-sm select-none">Work</span>
       </button>
     </div>
   )

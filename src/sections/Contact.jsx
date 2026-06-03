@@ -139,8 +139,8 @@ export default function Contact() {
               transition={{ duration: 0.6 }}
               className="contact-heading-reveal mb-12"
             >
-              <span className="font-accent text-gold text-lg italic tracking-wide">{t.contact.kicker}</span>
-              <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-semibold mt-4 leading-tight">
+              <span className="accent-text text-gold text-lg">{t.contact.kicker}</span>
+              <h2 className="heading-1 mt-4">
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -155,12 +155,12 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="gold-gradient-heavy block"
+                  className="gold-gradient-heavy block text-glow"
                 >
                   {t.contact.heading2}
                 </motion.span>
               </h2>
-              <p className="font-body text-muted mt-6 max-w-lg mx-auto leading-relaxed">
+              <p className="body-base text-muted mt-6 max-w-lg mx-auto">
                 {t.contact.sub}
               </p>
             </motion.div>
@@ -175,13 +175,13 @@ export default function Contact() {
                       <polyline points="22 4 12 14.01 9 11.01" />
                     </svg>
                   </div>
-                  <h3 className="font-heading text-2xl text-white mb-2">Thank You</h3>
-                  <p className="font-body text-sm text-muted max-w-sm mx-auto">
+                  <h3 className="heading-2 text-white mb-2">Thank You</h3>
+                  <p className="body-base text-muted max-w-sm mx-auto">
                     Your message has been sent. We'll get back to you within 24h.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-6 font-body text-xs text-gold/60 hover:text-gold uppercase tracking-wider transition-colors"
+                    className="mt-6 btn-text-sm text-gold/60 hover:text-gold transition-colors"
                   >
                     Send another message
                   </button>
@@ -199,7 +199,7 @@ export default function Contact() {
                 <div className="mb-6 pb-6 border-b border-border/30">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-                    <span className="font-body text-xs text-gold uppercase tracking-[0.2em]">{t.contact.form.booking}</span>
+                    <span className="label-sm text-gold">{t.contact.form.booking}</span>
                   </div>
                   <div className="flex items-center gap-2 px-3 py-2 rounded-lg mb-4"
                     style={{ background: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.1)' }}
@@ -207,12 +207,12 @@ export default function Contact() {
                     <svg className="w-4 h-4 text-gold/60 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
                     </svg>
-                    <span className="font-body text-[11px] text-gold/60 tracking-wide">Google Meet</span>
-                    <span className="font-body text-[10px] text-white/30 ml-auto">Link sent after confirmation</span>
+                    <span className="label-sm text-gold/60">Google Meet</span>
+                    <span className="label-sm text-white/30 ml-auto">Link sent after confirmation</span>
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="font-body text-xs text-muted uppercase tracking-wider block mb-2">{t.contact.form.date}</label>
+                      <label className="label-sm text-muted block mb-2">{t.contact.form.date}</label>
                       <select
                         name="date"
                         className="w-full bg-white/5 border border-border/40 rounded-sm px-4 py-3 font-body text-sm text-white/80 focus:outline-none focus:border-gold/60 transition-colors"
@@ -224,7 +224,7 @@ export default function Contact() {
                       </select>
                     </div>
                     <div>
-                      <label className="font-body text-xs text-muted uppercase tracking-wider block mb-2">{t.contact.form.time}</label>
+                      <label className="label-sm text-muted block mb-2">{t.contact.form.time}</label>
                       <select
                         name="time"
                         className="w-full bg-white/5 border border-border/40 rounded-sm px-4 py-3 font-body text-sm text-white/80 focus:outline-none focus:border-gold/60 transition-colors"
@@ -241,7 +241,7 @@ export default function Contact() {
                 {/* Form fields */}
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label className="font-body text-xs text-muted uppercase tracking-wider block mb-2">{t.contact.form.name}</label>
+                    <label className="label-sm text-muted block mb-2">{t.contact.form.name}</label>
                     <input
                       type="text"
                       name="name"
@@ -251,7 +251,7 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="font-body text-xs text-muted uppercase tracking-wider block mb-2">{t.contact.form.email}</label>
+                    <label className="label-sm text-muted block mb-2">{t.contact.form.email}</label>
                     <input
                       type="email"
                       name="email"
@@ -262,7 +262,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <label className="font-body text-xs text-muted uppercase tracking-wider block mb-2">{t.contact.form.projectType}</label>
+                  <label className="label-sm text-muted block mb-2">{t.contact.form.projectType}</label>
                   <select
                     name="projectType"
                     className="w-full bg-white/5 border border-border/40 rounded-sm px-4 py-3 font-body text-sm text-white/80 focus:outline-none focus:border-gold/60 transition-colors"
@@ -274,7 +274,7 @@ export default function Contact() {
                   </select>
                 </div>
                 <div className="mb-6">
-                  <label className="font-body text-xs text-muted uppercase tracking-wider block mb-2">{t.contact.form.message}</label>
+                  <label className="label-sm text-muted block mb-2">{t.contact.form.message}</label>
                   <textarea
                     name="message"
                     rows={4}
@@ -283,7 +283,7 @@ export default function Contact() {
                   />
                 </div>
                 <MagneticButton
-                  className="w-full px-6 py-4 rounded-full text-sm tracking-widest uppercase gold-glow"
+                  className="w-full px-6 py-4 rounded-full btn-text gold-glow"
                   variant="primary"
                   disabled={submitting}
                 >

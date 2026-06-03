@@ -108,7 +108,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 glass-premium px-5 py-2.5 rounded-full mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-gold animate-pulse shadow-[0_0_10px_rgba(212,175,55,0.6)]" />
-          <span className="font-body text-xs text-muted/90 uppercase tracking-[0.2em] font-semibold">{t.hero.tag}</span>
+          <span className="label-sm text-muted/90">{t.hero.tag}</span>
         </motion.div>
 
         {/* Logo wordmark */}
@@ -118,11 +118,11 @@ export default function Hero() {
           transition={{ delay: 0.5, duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
           className="mb-6"
         >
-          <span className="hero-wordmark-hmz font-heading text-6xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold tracking-tight gold-gradient-heavy leading-none inline-block"
+          <span className="hero-wordmark-hmz display-hero gold-gradient-heavy inline-block text-glow"
             style={{ textShadow: '0 0 80px rgba(212,175,55,0.25), 0 0 160px rgba(212,175,55,0.08)' }}>
             HMZ
           </span>
-          <span className="hero-wordmark-dev font-heading text-6xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold text-white/95 leading-none inline-block"
+          <span className="hero-wordmark-dev display-hero text-white/95 inline-block text-glow-strong"
             style={{ textShadow: '0 0 60px rgba(255,255,255,0.1), 0 0 120px rgba(255,255,255,0.04)' }}>
             Develop
           </span>
@@ -130,16 +130,16 @@ export default function Hero() {
 
         {/* Main headline */}
         <h1 className="overflow-hidden mb-4">
-          <span className="hero-line block font-heading text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold text-white/90 leading-tight tracking-tight">
+          <span className="hero-line block heading-1 text-white/90">
             {t.hero.headline1}
           </span>
-          <span className="hero-line block font-heading text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-semibold gold-gradient-heavy leading-tight tracking-tight">
+          <span className="hero-line block heading-1 gold-gradient-heavy text-glow">
             {t.hero.headline2}
           </span>
         </h1>
 
         {/* Subheadline */}
-        <p className="hero-sub font-body text-sm sm:text-base md:text-lg text-muted/80 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+        <p className="hero-sub body-lg text-muted/80 max-w-2xl mx-auto px-4 sm:px-0">
           {t.hero.sub}
         </p>
 
@@ -147,14 +147,14 @@ export default function Hero() {
         <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10">
           <MagneticButton
             href="#contact"
-            className="px-8 py-4 rounded-full text-xs sm:text-sm tracking-[0.15em] uppercase gold-glow"
+            className="px-8 py-4 rounded-full btn-text gold-glow"
             variant="primary"
           >
             {t.hero.ctaStart}
           </MagneticButton>
           <MagneticButton
             href="#services"
-            className="px-8 py-4 rounded-full text-xs sm:text-sm tracking-[0.15em] uppercase"
+            className="px-8 py-4 rounded-full btn-text"
             variant="outline"
           >
             {t.hero.ctaExplore}

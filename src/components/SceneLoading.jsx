@@ -11,7 +11,7 @@ export default function SceneLoading({ height = 'full' }) {
             borderBottomColor: 'transparent',
           }}
         />
-        <span className="font-body text-[10px] text-gold/40 uppercase tracking-widest animate-pulse">Loading</span>
+        <span className="label-sm text-gold/40 animate-pulse">Loading</span>
       </div>
     </div>
   )

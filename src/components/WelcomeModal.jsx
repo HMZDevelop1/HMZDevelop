@@ -94,22 +94,22 @@ export default function WelcomeModal() {
               >
                   <motion.div variants={childVariants} className="text-center mb-6" style={{ transform: 'translateZ(20px)' }}>
                   <div className="inline-flex items-center mb-1">
-                    <span className="font-heading text-3xl md:text-4xl font-bold gold-gradient-heavy tracking-tight" style={{ textShadow: '0 0 30px rgba(212,175,55,0.2)' }}>HMZ</span>
-                    <span className="font-heading text-3xl md:text-4xl font-bold text-white/95 tracking-tight" style={{ textShadow: '0 0 20px rgba(255,255,255,0.08)' }}>Develop</span>
+                    <span className="heading-1 gold-gradient-heavy text-glow" style={{ textShadow: '0 0 30px rgba(212,175,55,0.2)' }}>HMZ</span>
+                    <span className="heading-1 text-white/95 text-glow-strong" style={{ textShadow: '0 0 20px rgba(255,255,255,0.08)' }}>Develop</span>
                   </div>
                   <div className="w-16 h-px mx-auto mt-3" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent)' }} />
                 </motion.div>
 
                 <motion.p
                   variants={childVariants}
-                  className="font-heading text-sm md:text-base text-white/80 text-center font-medium mb-1"
+                  className="heading-4 text-white/80 text-center font-medium mb-1"
                   style={{ transform: 'translateZ(10px)' }}
                 >
                   Welcome to
                 </motion.p>
                 <motion.p
                   variants={childVariants}
-                  className="font-body text-[11px] md:text-xs text-white/40 text-center leading-relaxed mb-7 max-w-sm mx-auto"
+                  className="body-sm text-white/40 text-center mb-7 max-w-sm mx-auto"
                   style={{ transform: 'translateZ(8px)' }}
                 >
                   We craft premium digital experiences — from clean websites to full-scale platforms — with performance, purpose, and precision.
@@ -135,8 +135,8 @@ export default function WelcomeModal() {
                     >
                       <span className="text-gold text-sm mt-0.5 flex-shrink-0">✦</span>
                       <div>
-                        <p className="font-heading text-xs text-white/70 tracking-wide">{item.label}</p>
-                        <p className="font-body text-[10px] text-white/30 mt-0.5">{item.sub}</p>
+                        <p className="heading-4 text-white/70">{item.label}</p>
+                        <p className="body-sm text-white/30 mt-0.5">{item.sub}</p>
                       </div>
                     </div>
                   ))}
@@ -147,11 +147,11 @@ export default function WelcomeModal() {
                     onClick={handleEnter}
                     whileHover={{ scale: 1.02, y: -1 }}
                     whileTap={{ scale: 0.98 }}
-                    className="font-heading text-xs tracking-[0.15em] font-semibold text-black bg-gold hover:bg-soft-gold px-8 py-3 rounded-xl transition-all duration-300 w-full"
+                    className="btn-text font-semibold text-black bg-gold hover:bg-soft-gold px-8 py-3 rounded-xl transition-all duration-300 w-full"
                   >
                     Enter the Experience
                   </motion.button>
-                  <p className="font-body text-[9px] text-white/15 tracking-wider uppercase">Premium Digital Studio</p>
+                  <p className="label-sm text-white/15">Premium Digital Studio</p>
                 </motion.div>
               </motion.div>
             </div>

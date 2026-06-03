@@ -46,7 +46,7 @@ function BetaBadge() {
         boxShadow: '0 0 20px rgba(212,175,55,0.15)',
       }}
     >
-      <span className="relative font-heading text-[9px] font-bold tracking-[0.2em] uppercase gold-gradient">BETA</span>
+      <span className="relative label-sm gold-gradient font-bold">BETA</span>
       <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-gold animate-ping opacity-60" />
     </div>
   )
@@ -155,7 +155,7 @@ function ProjectCard({ project, index }) {
               <motion.span
                 custom={0}
                 variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
-                className="block font-body text-[10px] tracking-[0.25em] uppercase text-gold/50 font-medium"
+                className="block label-sm text-gold/50"
               >
                 {project.category}
               </motion.span>
@@ -164,7 +164,7 @@ function ProjectCard({ project, index }) {
               <motion.h3
                 custom={1}
                 variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
-                className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight"
+                className="heading-2 text-white"
               >
                 {project.title}
               </motion.h3>
@@ -173,7 +173,7 @@ function ProjectCard({ project, index }) {
               <motion.p
                 custom={2}
                 variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
-                className="font-body text-xs sm:text-sm text-white/45 leading-relaxed max-w-lg"
+                className="body-base text-white/45 max-w-lg"
               >
                 {project.desc}
               </motion.p>
@@ -187,7 +187,7 @@ function ProjectCard({ project, index }) {
                 >
                   {project.tags.map((tag) => (
                     <span key={tag}
-                      className="font-body text-[9px] sm:text-[10px] tracking-wider uppercase px-2.5 py-1 rounded-full transition-all duration-300 hover:bg-gold/10 hover:border-gold/40"
+                      className="label-sm px-2.5 py-1 rounded-full transition-all duration-300 hover:bg-gold/10 hover:border-gold/40"
                       style={{ border: '1px solid rgba(212,175,55,0.2)', background: 'rgba(212,175,55,0.06)', color: 'rgba(212,175,55,0.6)' }}
                     >
                       {tag}
@@ -207,7 +207,7 @@ function ProjectCard({ project, index }) {
                   <div className="flex flex-wrap gap-x-3 gap-y-1">
                     {project.features.map((feat) => (
                       <span key={feat}
-                        className="font-body text-[8px] sm:text-[9px] tracking-wider text-gold/30 uppercase flex items-center gap-1"
+                        className="label-sm text-gold/30 flex items-center gap-1"
                       >
                         <span className="w-1 h-1 rounded-full bg-gold/20 inline-block" />
                         {feat}
@@ -223,7 +223,7 @@ function ProjectCard({ project, index }) {
                   className="group/btn inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-400 hover:bg-gold/12 hover:shadow-[0_0_25px_rgba(212,175,55,0.1)]"
                   style={{ border: '1px solid rgba(212,175,55,0.25)', color: 'rgba(212,175,55,0.85)' }}
                 >
-                  <span className="font-body text-[11px] font-semibold tracking-wider uppercase">View Project</span>
+                  <span className="btn-text-sm">View Project</span>
                   <svg className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -308,7 +308,7 @@ export default function Showcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight"
+            className="heading-1 text-white"
           >
             Featured{' '}
             <span className="gold-gradient-heavy">Projects</span>
@@ -319,7 +319,7 @@ export default function Showcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-body text-muted mt-4 max-w-lg mx-auto leading-relaxed text-sm"
+            className="body-base text-muted mt-4 max-w-lg mx-auto"
           >
             Real projects we&apos;ve built — from concept to deployment. Each one crafted with precision, performance, and purpose.
           </motion.p>

@@ -19,7 +19,7 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
         className={`service-card group ${popular ? 'lg:-translate-y-2' : ''}`}
       >
         {popular && (
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold to-soft-gold text-black font-heading text-[10px] font-semibold px-5 py-1.5 rounded-full uppercase tracking-wider z-20 whitespace-nowrap shadow-lg shadow-gold/30 animate-gold-pulse">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold to-soft-gold text-black label-sm font-semibold px-5 py-1.5 rounded-full z-20 shadow-lg shadow-gold/30 animate-gold-pulse">
             {t.services.popular}
           </div>
         )}
@@ -74,11 +74,11 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
 
           {/* Content */}
           <div className="px-6 flex-1 flex flex-col">
-            <h3 className="font-heading text-lg md:text-xl font-semibold text-white text-center group-hover:gold-gradient-heavy transition-all duration-300">
+            <h3 className="heading-4 text-white text-center group-hover:gold-gradient-heavy transition-all duration-300">
               {service.title}
             </h3>
 
-            <p className="font-body text-xs text-muted/70 text-center mt-2 leading-relaxed mb-5 max-w-[260px] mx-auto">
+            <p className="body-sm text-muted/70 text-center mt-2 mb-5 max-w-[260px] mx-auto">
               {service.desc}
             </p>
 
@@ -87,7 +87,7 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
               {service.features.map((feat) => (
                 <div key={feat} className="flex items-start gap-2.5 group/feat">
                   <span className="text-gold/60 group-hover/feat:text-gold transition-colors duration-300 mt-0.5 text-xs flex-shrink-0">✦</span>
-                  <span className="font-body text-xs text-white/50 group-hover/feat:text-white/70 leading-relaxed transition-colors duration-300">{feat}</span>
+                  <span className="body-sm text-white/50 group-hover/feat:text-white/70 transition-colors duration-300">{feat}</span>
                 </div>
               ))}
             </div>
@@ -97,16 +97,16 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
           <div className="px-6 pb-8">
             <div className="text-center mb-5">
               {service.tag && (
-                <div className="font-body text-[10px] text-muted/50 uppercase tracking-wider font-medium">{service.tag}</div>
+                <div className="label-sm text-muted/50">{service.tag}</div>
               )}
               <div className="font-heading text-2xl md:text-3xl font-bold gold-gradient-heavy mt-1">{formatPrice(service.basePrice)}</div>
-              {service.tag && <div className="font-body text-[9px] text-muted/40 uppercase tracking-wider mt-1">{t.services.oneTime}</div>}
+              {service.tag && <div className="label-sm text-muted/40 mt-1">{t.services.oneTime}</div>}
             </div>
 
             <MagneticButton
               href="#contact"
               variant={popular ? 'primary' : 'outline'}
-              className={`w-full px-5 py-3.5 rounded-full text-xs tracking-widest uppercase text-center font-semibold ${
+              className={`w-full px-5 py-3.5 rounded-full btn-text text-center ${
                 popular ? 'shadow-lg shadow-gold/25 gold-glow' : ''
               }`}
             >
@@ -244,11 +244,11 @@ export default function Services() {
 
       <div className="max-w-premium relative z-10">
         <div className="services-heading-reveal text-center mb-16">
-          <span className="font-accent text-gold text-lg italic tracking-wide">{t.services.kicker}</span>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-white mt-3 leading-tight">
+          <span className="accent-text text-gold text-lg">{t.services.kicker}</span>
+          <h2 className="heading-1 text-white mt-3">
             {t.services.heading}
           </h2>
-          <p className="font-body text-muted mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="body-base text-muted mt-4 max-w-2xl mx-auto">
             {t.services.sub}
           </p>
         </div>
