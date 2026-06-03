@@ -7,7 +7,7 @@ export default function SceneLoading({ height = 'full' }) {
         <div className="w-6 h-6 rounded-full border border-gold/30 animate-spin"
           style={{
             borderTopColor: 'transparent',
-            borderRightColor: '#E5E4E2',
+            borderRightColor: '#DC2626',
             borderBottomColor: 'transparent',
           }}
         />

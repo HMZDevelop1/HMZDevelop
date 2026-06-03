@@ -49,13 +49,13 @@ export default function Hero() {
           <HeroOrbit3D />
           <FloatingShape
             geometry="icosahedron"
-            color="#E5E4E2"
+            color="#DC2626"
             scale={0.6}
             speed={0.15}
             floatAmplitude={0.5}
             mouseInfluence={0.5}
           />
-          <Particles3D count={50} color="#E5E4E2" size={0.02} speed={0.08} spread={12} />
+          <Particles3D count={50} color="#DC2626" size={0.02} speed={0.08} spread={12} />
         </Scene3D>
       </Suspense>
 
@@ -65,7 +65,7 @@ export default function Hero() {
           transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(229,228,226,0.04) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(220,38,38,0.04) 0%, transparent 70%)',
           }}
         />
         <motion.div
@@ -73,7 +73,7 @@ export default function Hero() {
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(191,192,192,0.035) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(239,68,68,0.035) 0%, transparent 70%)',
           }}
         />
       </div>
@@ -85,7 +85,7 @@ export default function Hero() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="inline-flex items-center gap-2 glass-premium px-5 py-2.5 rounded-full mb-8"
         >
-          <span className="w-2 h-2 rounded-full bg-gold animate-pulse shadow-[0_0_10px_rgba(229,228,226,0.25)]" />
+          <span className="w-2 h-2 rounded-full bg-gold animate-pulse shadow-[0_0_10px_rgba(220,38,38,0.25)]" />
           <span className="label-sm text-muted/90">{t.hero.tag}</span>
         </motion.div>
 
@@ -96,9 +96,10 @@ export default function Hero() {
           className="mb-6"
         >
           <span className="display-hero gold-gradient-heavy inline-block text-glow"
-            style={{ textShadow: '0 0 80px rgba(229,228,226,0.08), 0 0 160px rgba(229,228,226,0.03)' }}>
+            style={{ textShadow: '0 0 80px rgba(220,38,38,0.15), 0 0 160px rgba(220,38,38,0.06)' }}>
             HMZ
           </span>
+          <span className="display-hero text-gold inline-block mx-1 opacity-80" aria-hidden="true">◆</span>
           <span className="display-hero text-white/95 inline-block text-glow-strong"
             style={{ textShadow: '0 0 60px rgba(255,255,255,0.1), 0 0 120px rgba(255,255,255,0.04)' }}>
             Develop

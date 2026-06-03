@@ -13,8 +13,8 @@ function ProjectLogo({ project }) {
     <div className="w-full h-full flex items-center justify-center">
       <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl flex items-center justify-center transition-all duration-500 md:group-hover:scale-105 md:group-hover:shadow-lg md:group-hover:shadow-gold/10"
         style={{
-          background: 'linear-gradient(135deg, rgba(229,228,226,0.07), rgba(191,192,192,0.02))',
-          border: '1px solid rgba(229,228,226,0.09)',
+          background: 'linear-gradient(135deg, rgba(220,38,38,0.07), rgba(239,68,68,0.02))',
+          border: '1px solid rgba(220,38,38,0.09)',
         }}
       >
         <span className="text-4xl md:text-5xl drop-shadow-xl">{project.icon}</span>
@@ -27,9 +27,9 @@ function BetaBadge() {
   return (
     <div className="relative px-3 py-1 rounded-full overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, rgba(229,228,226,0.12), rgba(191,192,192,0.06))',
-        border: '1px solid rgba(229,228,226,0.24)',
-        boxShadow: '0 0 20px rgba(229,228,226,0.09)',
+        background: 'linear-gradient(135deg, rgba(220,38,38,0.12), rgba(239,68,68,0.06))',
+        border: '1px solid rgba(220,38,38,0.24)',
+        boxShadow: '0 0 20px rgba(220,38,38,0.09)',
       }}
     >
       <span className="relative label-sm gold-gradient font-bold">BETA</span>
@@ -52,8 +52,8 @@ function ProjectCard({ project, index }) {
         className="relative rounded-2xl overflow-hidden h-full"
         style={{
           background: 'linear-gradient(160deg, #0B0906 0%, #080705 50%, #050504 100%)',
-          border: '1px solid rgba(229,228,226,0.04)',
-          boxShadow: '0 0 40px rgba(229,228,226,0.01), inset 0 1px 0 rgba(229,228,226,0.04)',
+          border: '1px solid rgba(220,38,38,0.04)',
+          boxShadow: '0 0 40px rgba(220,38,38,0.01), inset 0 1px 0 rgba(220,38,38,0.04)',
           transition: 'border 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
@@ -61,8 +61,8 @@ function ProjectCard({ project, index }) {
         <div
           className="absolute inset-0 rounded-2xl opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
-            border: '1px solid rgba(229,228,226,0.15)',
-            boxShadow: '0 0 80px rgba(229,228,226,0.05), 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(229,228,226,0.07)',
+            border: '1px solid rgba(220,38,38,0.15)',
+            boxShadow: '0 0 80px rgba(220,38,38,0.05), 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(220,38,38,0.07)',
           }}
         />
 
@@ -71,7 +71,7 @@ function ProjectCard({ project, index }) {
         <div
           className="absolute inset-0 rounded-2xl opacity-0 md:group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
           style={{
-            background: 'radial-gradient(800px circle at 50% 50%, rgba(229,228,226,0.02), transparent 60%)',
+            background: 'radial-gradient(800px circle at 50% 50%, rgba(220,38,38,0.02), transparent 60%)',
           }}
         />
 
@@ -84,25 +84,25 @@ function ProjectCard({ project, index }) {
         <div className="flex flex-col md:flex-row min-h-[400px] md:min-h-[340px]">
           <div className="relative w-full md:w-[40%] flex items-center justify-center p-8 md:p-10 min-h-[220px] md:min-h-0">
             <div className="absolute inset-3 md:inset-4 rounded-xl pointer-events-none"
-              style={{ border: '1px solid rgba(229,228,226,0.04)' }}
+              style={{ border: '1px solid rgba(220,38,38,0.04)' }}
             />
             <div className="absolute top-5 left-5 w-3 h-3 pointer-events-none"
-              style={{ borderTop: '1.5px solid rgba(229,228,226,0.07)', borderLeft: '1.5px solid rgba(229,228,226,0.07)' }}
+              style={{ borderTop: '1.5px solid rgba(220,38,38,0.07)', borderLeft: '1.5px solid rgba(220,38,38,0.07)' }}
             />
             <div className="absolute top-5 right-5 w-3 h-3 pointer-events-none"
-              style={{ borderTop: '1.5px solid rgba(229,228,226,0.07)', borderRight: '1.5px solid rgba(229,228,226,0.07)' }}
+              style={{ borderTop: '1.5px solid rgba(220,38,38,0.07)', borderRight: '1.5px solid rgba(220,38,38,0.07)' }}
             />
             <div className="absolute bottom-5 left-5 w-3 h-3 pointer-events-none"
-              style={{ borderBottom: '1.5px solid rgba(229,228,226,0.07)', borderLeft: '1.5px solid rgba(229,228,226,0.07)' }}
+              style={{ borderBottom: '1.5px solid rgba(220,38,38,0.07)', borderLeft: '1.5px solid rgba(220,38,38,0.07)' }}
             />
             <div className="absolute bottom-5 right-5 w-3 h-3 pointer-events-none"
-              style={{ borderBottom: '1.5px solid rgba(229,228,226,0.07)', borderRight: '1.5px solid rgba(229,228,226,0.07)' }}
+              style={{ borderBottom: '1.5px solid rgba(220,38,38,0.07)', borderRight: '1.5px solid rgba(220,38,38,0.07)' }}
             />
 
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div
                 className="w-56 h-56 md:w-72 md:h-72 rounded-full transition-all duration-700 ease-out opacity-[0.08] md:group-hover:opacity-20 md:group-hover:scale-110"
-                style={{ background: 'radial-gradient(circle, rgba(229,228,226,0.05) 0%, transparent 60%)' }}
+                style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.05) 0%, transparent 60%)' }}
               />
             </div>
 
@@ -134,7 +134,7 @@ function ProjectCard({ project, index }) {
                   {project.tags.map((tag) => (
                     <span key={tag}
                       className="label-sm px-2.5 py-1 rounded-full transition-all duration-300 md:hover:bg-gold/10 md:hover:border-gold/40"
-                      style={{ border: '1px solid rgba(229,228,226,0.12)', background: 'rgba(229,228,226,0.04)', color: 'rgba(229,228,226,0.36)' }}
+                      style={{ border: '1px solid rgba(220,38,38,0.12)', background: 'rgba(220,38,38,0.04)', color: 'rgba(220,38,38,0.36)' }}
                     >
                       {tag}
                     </span>
@@ -143,7 +143,7 @@ function ProjectCard({ project, index }) {
               )}
 
               <div className="flex flex-wrap items-center justify-between gap-3 pt-3"
-                style={{ borderTop: '1px solid rgba(229,228,226,0.05)' }}
+                style={{ borderTop: '1px solid rgba(220,38,38,0.05)' }}
               >
                 {project.features && (
                   <div className="flex flex-wrap gap-x-3 gap-y-1">
@@ -162,8 +162,8 @@ function ProjectCard({ project, index }) {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/btn inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-400 md:hover:bg-gold/12 md:hover:shadow-[0_0_25px_rgba(229,228,226,0.05)]"
-                  style={{ border: '1px solid rgba(229,228,226,0.15)', color: 'rgba(229,228,226,0.51)' }}
+                  className="group/btn inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-400 md:hover:bg-gold/12 md:hover:shadow-[0_0_25px_rgba(220,38,38,0.05)]"
+                  style={{ border: '1px solid rgba(220,38,38,0.15)', color: 'rgba(220,38,38,0.51)' }}
                 >
                   <span className="btn-text-sm">View Project</span>
                   <svg className="w-3 h-3 md:group-hover/btn:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -205,14 +205,14 @@ export default function Showcase() {
 
   return (
     <section ref={sectionRef} id="showcase" className="section-padding relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #121212 0%, #0a0804 50%, #121212 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #0A0A0A 0%, #0a0804 50%, #0A0A0A 100%)' }}
     >
       <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform">
         <Suspense fallback={null}>
           <Scene3D cameraPosition={[0, 0, 10]} frameloop="demand" dpr={[1, 1.2]}>
-            <FloatingShape geometry="icosahedron" color="#E5E4E2" scale={1.8} speed={0.04} floatAmplitude={0.5} mouseInfluence={0.15} />
-            <FloatingShape geometry="torusKnot" color="#BFC0C0" scale={0.8} speed={0.08} floatAmplitude={0.6} mouseInfluence={0.2} />
-            <Particles3D count={40} color="#E5E4E2" size={0.02} speed={0.04} spread={15} />
+            <FloatingShape geometry="icosahedron" color="#DC2626" scale={1.8} speed={0.04} floatAmplitude={0.5} mouseInfluence={0.15} />
+            <FloatingShape geometry="torusKnot" color="#EF4444" scale={0.8} speed={0.08} floatAmplitude={0.6} mouseInfluence={0.2} />
+            <Particles3D count={40} color="#DC2626" size={0.02} speed={0.04} spread={15} />
           </Scene3D>
         </Suspense>
       </div>
@@ -220,7 +220,7 @@ export default function Showcase() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(229,228,226,0.03) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(220,38,38,0.03) 0%, transparent 70%)',
             animation: 'pulseCopper 8s ease-in-out infinite',
           }}
         />

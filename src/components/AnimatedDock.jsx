@@ -22,8 +22,8 @@ export default function AnimatedDock({ className, items }) {
         background: 'rgba(13,11,8,0.7)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
-        border: '1px solid rgba(229,228,226,0.06)',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.3), 0 0 30px rgba(229,228,226,0.015)',
+        border: '1px solid rgba(220,38,38,0.06)',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.3), 0 0 30px rgba(220,38,38,0.015)',
       }}
     >
       {items.map((item, index) => (
@@ -61,8 +61,8 @@ function DockItem({ mouseX, children }) {
       ref={ref}
       style={{
         width,
-        background: 'rgba(229,228,226,0.04)',
-        border: '1px solid rgba(229,228,226,0.05)',
+        background: 'rgba(220,38,38,0.04)',
+        border: '1px solid rgba(220,38,38,0.05)',
       }}
       className="aspect-square rounded-full flex items-center justify-center"
     >

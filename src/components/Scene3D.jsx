@@ -39,8 +39,8 @@ export default function Scene3D({
           <Suspense fallback={null}>
             <ambientLight intensity={1.2} />
             <directionalLight position={[5, 5, 5]} intensity={1.5} />
-            <directionalLight position={[-5, -3, -3]} intensity={0.6} color="#E5E4E2" />
-            <hemisphereLight args={['#E5E4E2', '#121212', 0.3]} />
+            <directionalLight position={[-5, -3, -3]} intensity={0.6} color="#DC2626" />
+            <hemisphereLight args={['#DC2626', '#0A0A0A', 0.3]} />
             {environment && (
               <Environment preset="studio" environmentIntensity={0.6} />
             )}

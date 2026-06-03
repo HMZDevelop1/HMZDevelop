@@ -31,7 +31,7 @@ export default function SpotlightCursor({ children }) {
       <div
         className="pointer-events-none absolute inset-0 z-10"
         style={{
-          background: 'radial-gradient(600px circle at var(--spotlight-x) var(--spotlight-y), rgba(229, 228, 226, 0.04), transparent 60%)',
+          background: 'radial-gradient(600px circle at var(--spotlight-x) var(--spotlight-y), rgba(220, 38, 38, 0.04), transparent 60%)',
         }}
       />
       {children}

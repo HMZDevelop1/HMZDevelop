@@ -4,7 +4,7 @@ import * as THREE from 'three'
 
 export default function Particles3D({
   count = 80,
-  color = '#E5E4E2',
+  color = '#DC2626',
   size = 0.02,
   speed = 0.15,
   spread = 8,

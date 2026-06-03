@@ -32,14 +32,14 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
           }`}
           style={{
             background: popular
-              ? 'linear-gradient(145deg, rgba(18,17,20,0.97), rgba(16,16,16,0.99))'
-              : 'linear-gradient(145deg, rgba(16,16,16,0.92), rgba(16,16,16,0.96))',
+              ? 'linear-gradient(145deg, rgba(10,10,10,0.97), rgba(10,10,10,0.99))'
+              : 'linear-gradient(145deg, rgba(10,10,10,0.92), rgba(10,10,10,0.96))',
             boxShadow: popular
-              ? '0 0 60px rgba(229,228,226,0.06), 0 0 120px rgba(229,228,226,0.02), inset 0 1px 0 rgba(229,228,226,0.09)'
-              : '0 0 30px rgba(229,228,226,0.01), inset 0 1px 0 rgba(229,228,226,0.04)',
+              ? '0 0 60px rgba(220,38,38,0.06), 0 0 120px rgba(220,38,38,0.02), inset 0 1px 0 rgba(220,38,38,0.09)'
+              : '0 0 30px rgba(220,38,38,0.01), inset 0 1px 0 rgba(220,38,38,0.04)',
             border: popular
-              ? '1px solid rgba(229,228,226,0.09)'
-              : '1px solid rgba(229,228,226,0.04)',
+              ? '1px solid rgba(220,38,38,0.09)'
+              : '1px solid rgba(220,38,38,0.04)',
           }}
         >
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/70 to-transparent opacity-90" />
@@ -48,13 +48,13 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
             <>
               <div className="absolute -top-20 -right-20 w-44 h-44 rounded-full"
                 style={{
-                  background: 'radial-gradient(circle, rgba(229,228,226,0.09), transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(220,38,38,0.09), transparent 70%)',
                   filter: 'blur(40px)',
                 }}
               />
               <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full"
                 style={{
-                  background: 'radial-gradient(circle, rgba(191,192,192,0.04), transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(239,68,68,0.04), transparent 70%)',
                   filter: 'blur(30px)',
                 }}
               />
@@ -63,7 +63,7 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
 
           <div className="text-center pt-8 pb-5">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-500 text-gold group-hover:shadow-xl group-hover:shadow-gold/20"
-              style={{ background: 'rgba(229,228,226,0.05)' }}
+              style={{ background: 'rgba(220,38,38,0.05)' }}
             >
               {icon}
             </div>
@@ -89,12 +89,13 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
           </div>
 
           <div className="px-6 pb-8">
+            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-gold/60 to-transparent mx-auto mb-4 rounded-full" />
             <div className="text-center mb-5">
               {service.tag && (
-                <div className="label-sm text-muted/50">{service.tag}</div>
+                <div className="label-sm text-muted/40 mb-1">{service.tag}</div>
               )}
-              <div className="font-accent italic text-3xl md:text-4xl gold-gradient-heavy mt-1 tracking-wide">{formatPrice(service.basePrice)}</div>
-              {service.tag && <div className="label-sm text-muted/40 mt-1">{t.services.oneTime}</div>}
+              <div className="font-display text-4xl md:text-5xl font-bold gold-gradient-heavy tracking-tight leading-none mt-1">{formatPrice(service.basePrice)}</div>
+              {service.tag && <div className="label-sm text-gold/60 mt-2">{t.services.oneTime}</div>}
             </div>
 
             <MagneticButton
@@ -162,8 +163,8 @@ export default function Services() {
         dot.style.cssText = `
           width: ${size}px; height: ${size}px;
           left: ${x}%; top: ${y}%;
-          background: rgba(229,228,226,${(Math.random() * 0.12 + 0.04) * 0.6});
-          box-shadow: 0 0 ${size * 2}px rgba(229,228,226,0.05);
+          background: rgba(220,38,38,${(Math.random() * 0.12 + 0.04) * 0.6});
+          box-shadow: 0 0 ${size * 2}px rgba(220,38,38,0.05);
           animation: skills-float ${duration}s ease-in-out ${delay}s infinite;
         `
         dotsContainer.appendChild(dot)
@@ -207,17 +208,17 @@ export default function Services() {
       className="section-padding relative overflow-hidden"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#121212] to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0A0A0A] to-black" />
 
         <div className="absolute top-0 -right-1/4 w-[80%] h-[60%] services-orb-1 rounded-full"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(229,228,226,0.04) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(220,38,38,0.04) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
         />
         <div className="absolute bottom-0 -left-1/4 w-[80%] h-[60%] services-orb-2 rounded-full"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(191,192,192,0.02) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(239,68,68,0.02) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
         />
@@ -225,8 +226,8 @@ export default function Services() {
         <div className="absolute inset-0 opacity-[0.015]"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(229,228,226,0.6) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(229,228,226,0.6) 1px, transparent 1px)
+              linear-gradient(rgba(220,38,38,0.6) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(220,38,38,0.6) 1px, transparent 1px)
             `,
             backgroundSize: '60px 60px',
           }}

@@ -94,7 +94,7 @@ async function main() {
                       fontSize: 160,
                       fontWeight: 700,
                       letterSpacing: '-0.02em',
-                      background: 'linear-gradient(135deg, #E5E4E2 0%, #BFC0C0 50%, #E5E4E2 100%)',
+                      background: 'linear-gradient(135deg, #DC2626 0%, #EF4444 50%, #DC2626 100%)',
                       backgroundClip: 'text',
                       color: 'transparent',
                       lineHeight: 1,
