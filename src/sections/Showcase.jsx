@@ -1,31 +1,17 @@
-import React, { useEffect, useRef, useState, lazy, Suspense } from 'react'
+import React, { useEffect, useRef, lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLanguage } from '../i18n/LanguageContext'
-import useTilt from '../hooks/useTilt'
 
 const Scene3D = lazy(() => import('../components/Scene3D'))
 const FloatingShape = lazy(() => import('../components/FloatingShape'))
 const Particles3D = lazy(() => import('../components/Particles3D'))
 
 function ProjectLogo({ project }) {
-  const [imgError, setImgError] = useState(false)
-
-  if (project.logo && !imgError) {
-    return (
-      <img
-        src={project.logo}
-        alt={`${project.title} logo`}
-        className="w-full h-full object-contain p-3 sm:p-4"
-        onError={() => setImgError(true)}
-      />
-    )
-  }
-
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl flex items-center justify-center"
+      <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl flex items-center justify-center transition-all duration-500 md:group-hover:scale-105 md:group-hover:shadow-lg md:group-hover:shadow-gold/10"
         style={{
           background: 'linear-gradient(135deg, rgba(212,175,55,0.12), rgba(242,210,122,0.04))',
           border: '1px solid rgba(212,175,55,0.15)',
@@ -53,37 +39,39 @@ function BetaBadge() {
 }
 
 function ProjectCard({ project, index }) {
-  const tiltRef = useTilt({ perspective: 1200, maxTilt: 4, scale: 1.015 })
-  const [isHovered, setIsHovered] = useState(false)
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
-      className="relative group"
-      style={{ transformStyle: 'preserve-3d' }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      whileTap={{ scale: 0.99 }}
+      className="relative group md:group-hover:-translate-y-1 transition-transform duration-500 ease-out"
     >
       <div
-        ref={tiltRef}
         className="relative rounded-2xl overflow-hidden h-full"
         style={{
           background: 'linear-gradient(160deg, #0B0906 0%, #080705 50%, #050504 100%)',
-          border: isHovered ? '1px solid rgba(212,175,55,0.25)' : '1px solid rgba(212,175,55,0.06)',
-          boxShadow: isHovered
-            ? '0 0 80px rgba(212,175,55,0.08), 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,175,55,0.12)'
-            : '0 0 40px rgba(212,175,55,0.02), inset 0 1px 0 rgba(212,175,55,0.06)',
-          transformStyle: 'preserve-3d',
+          border: '1px solid rgba(212,175,55,0.06)',
+          boxShadow: '0 0 40px rgba(212,175,55,0.02), inset 0 1px 0 rgba(212,175,55,0.06)',
           transition: 'border 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
-        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-gold/40 to-transparent opacity-80" />
-        <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-700 pointer-events-none"
+        {/* Hover border + shadow overlay */}
+        <div
+          className="absolute inset-0 rounded-2xl opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
-            background: isHovered ? 'radial-gradient(800px circle at 50% 50%, rgba(212,175,55,0.04), transparent 60%)' : 'none',
+            border: '1px solid rgba(212,175,55,0.25)',
+            boxShadow: '0 0 80px rgba(212,175,55,0.08), 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,175,55,0.12)',
+          }}
+        />
+
+        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-gold/40 to-transparent opacity-80" />
+
+        <div
+          className="absolute inset-0 rounded-2xl opacity-0 md:group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+          style={{
+            background: 'radial-gradient(800px circle at 50% 50%, rgba(212,175,55,0.04), transparent 60%)',
           }}
         />
 
@@ -112,34 +100,23 @@ function ProjectCard({ project, index }) {
             />
 
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <motion.div
-                className="w-56 h-56 md:w-72 md:h-72 rounded-full"
+              <div
+                className="w-56 h-56 md:w-72 md:h-72 rounded-full transition-all duration-700 ease-out opacity-[0.08] md:group-hover:opacity-20 md:group-hover:scale-110"
                 style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 60%)' }}
-                animate={{ scale: isHovered ? 1.2 : 1, opacity: isHovered ? 0.2 : 0.08 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               />
             </div>
 
             <div className="relative z-10 w-full h-full flex items-center justify-center">
-              <motion.div
-                animate={{ scale: isHovered ? 1.05 : 1 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="w-28 h-28 md:w-36 md:h-36"
-              >
+              <div className="w-28 h-28 md:w-36 md:h-36 transition-transform duration-500 ease-out md:group-hover:scale-105">
                 <ProjectLogo project={project} />
-              </motion.div>
+              </div>
             </div>
           </div>
 
           <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-gold/10 to-transparent" />
 
           <div className="relative flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-10 pb-8 md:pb-10 pt-4 md:pt-10">
-            <div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="space-y-3"
-            >
+            <div className="space-y-3">
               <span className="block label-sm text-gold/50">
                 {project.category}
               </span>
@@ -156,7 +133,7 @@ function ProjectCard({ project, index }) {
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {project.tags.map((tag) => (
                     <span key={tag}
-                      className="label-sm px-2.5 py-1 rounded-full transition-all duration-300 hover:bg-gold/10 hover:border-gold/40"
+                      className="label-sm px-2.5 py-1 rounded-full transition-all duration-300 md:hover:bg-gold/10 md:hover:border-gold/40"
                       style={{ border: '1px solid rgba(212,175,55,0.2)', background: 'rgba(212,175,55,0.06)', color: 'rgba(212,175,55,0.6)' }}
                     >
                       {tag}
@@ -185,11 +162,11 @@ function ProjectCard({ project, index }) {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/btn inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-400 hover:bg-gold/12 hover:shadow-[0_0_25px_rgba(212,175,55,0.1)]"
+                  className="group/btn inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-400 md:hover:bg-gold/12 md:hover:shadow-[0_0_25px_rgba(212,175,55,0.1)]"
                   style={{ border: '1px solid rgba(212,175,55,0.25)', color: 'rgba(212,175,55,0.85)' }}
                 >
                   <span className="btn-text-sm">View Project</span>
-                  <svg className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3 md:group-hover/btn:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>
