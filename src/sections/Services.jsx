@@ -42,10 +42,8 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
               : '1px solid rgba(212,175,55,0.06)',
           }}
         >
-          {/* Premium gradient top accent */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/70 to-transparent opacity-90" />
 
-          {/* Background glow for popular */}
           {popular && (
             <>
               <div className="absolute -top-20 -right-20 w-44 h-44 rounded-full"
@@ -63,7 +61,6 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
             </>
           )}
 
-          {/* Icon */}
           <div className="text-center pt-8 pb-5">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-500 text-gold group-hover:shadow-xl group-hover:shadow-gold/20"
               style={{ background: 'rgba(212,175,55,0.08)' }}
@@ -72,7 +69,6 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
             </div>
           </div>
 
-          {/* Content */}
           <div className="px-6 flex-1 flex flex-col">
             <h3 className="heading-4 text-white text-center group-hover:gold-gradient-heavy transition-all duration-300">
               {service.title}
@@ -82,7 +78,6 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
               {service.desc}
             </p>
 
-            {/* Features */}
             <div className="flex-1 space-y-3 mb-6">
               {service.features.map((feat) => (
                 <div key={feat} className="flex items-start gap-2.5 group/feat">
@@ -93,7 +88,6 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
             </div>
           </div>
 
-          {/* Price & CTA */}
           <div className="px-6 pb-8">
             <div className="text-center mb-5">
               {service.tag && (
@@ -212,7 +206,6 @@ export default function Services() {
       id="services"
       className="section-padding relative overflow-hidden"
     >
-      {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#050505] to-black" />
 

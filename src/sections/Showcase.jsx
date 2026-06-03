@@ -17,7 +17,7 @@ function ProjectLogo({ project }) {
       <img
         src={project.logo}
         alt={`${project.title} logo`}
-        className="w-full h-full object-contain p-4"
+        className="w-full h-full object-contain p-3 sm:p-4"
         onError={() => setImgError(true)}
       />
     )
@@ -67,64 +67,55 @@ function ProjectCard({ project, index }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Background glow on hover */}
-      <motion.div
-        className="absolute -inset-4 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.08), transparent 70%)',
-          filter: 'blur(40px)',
-        }}
-      />
-
       <div
         ref={tiltRef}
-        className="relative rounded-2xl overflow-hidden card-tilt h-full"
+        className="relative rounded-2xl overflow-hidden h-full"
         style={{
-          background: 'linear-gradient(160deg, #0d0b08 0%, #0a0806 50%, #050505 100%)',
-          border: isHovered ? '1px solid rgba(212,175,55,0.2)' : '1px solid rgba(212,175,55,0.06)',
+          background: 'linear-gradient(160deg, #0B0906 0%, #080705 50%, #050504 100%)',
+          border: isHovered ? '1px solid rgba(212,175,55,0.25)' : '1px solid rgba(212,175,55,0.06)',
           boxShadow: isHovered
-            ? '0 0 80px rgba(212,175,55,0.08), 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(212,175,55,0.12)'
-            : '0 0 40px rgba(212,175,55,0.03), inset 0 1px 0 rgba(212,175,55,0.06)',
+            ? '0 0 80px rgba(212,175,55,0.08), 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,175,55,0.12)'
+            : '0 0 40px rgba(212,175,55,0.02), inset 0 1px 0 rgba(212,175,55,0.06)',
           transformStyle: 'preserve-3d',
-          transition: 'border 0.4s ease, box-shadow 0.4s ease',
+          transition: 'border 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
-        {/* Top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-80" />
+        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-gold/40 to-transparent opacity-80" />
+        <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-700 pointer-events-none"
+          style={{
+            background: isHovered ? 'radial-gradient(800px circle at 50% 50%, rgba(212,175,55,0.04), transparent 60%)' : 'none',
+          }}
+        />
 
-        {/* BETA Badge */}
         {project.beta && (
           <div className="absolute top-4 right-4 z-20">
             <BetaBadge />
           </div>
         )}
 
-        <div className="flex flex-col md:flex-row min-h-[400px] md:min-h-[320px]">
-          {/* Left: Logo Area */}
-          <div className="relative w-full md:w-[42%] flex items-center justify-center p-8 md:p-10 min-h-[200px] md:min-h-0">
-            <div className="absolute inset-4 md:inset-6 rounded-xl pointer-events-none"
+        <div className="flex flex-col md:flex-row min-h-[400px] md:min-h-[340px]">
+          <div className="relative w-full md:w-[40%] flex items-center justify-center p-8 md:p-10 min-h-[220px] md:min-h-0">
+            <div className="absolute inset-3 md:inset-4 rounded-xl pointer-events-none"
               style={{ border: '1px solid rgba(212,175,55,0.06)' }}
             />
-            {/* Corner decorations */}
-            <div className="absolute top-6 left-6 w-2.5 h-2.5 pointer-events-none"
-              style={{ borderTop: '1.5px solid rgba(212,175,55,0.15)', borderLeft: '1.5px solid rgba(212,175,55,0.15)' }}
+            <div className="absolute top-5 left-5 w-3 h-3 pointer-events-none"
+              style={{ borderTop: '1.5px solid rgba(212,175,55,0.12)', borderLeft: '1.5px solid rgba(212,175,55,0.12)' }}
             />
-            <div className="absolute top-6 right-6 w-2.5 h-2.5 pointer-events-none"
-              style={{ borderTop: '1.5px solid rgba(212,175,55,0.15)', borderRight: '1.5px solid rgba(212,175,55,0.15)' }}
+            <div className="absolute top-5 right-5 w-3 h-3 pointer-events-none"
+              style={{ borderTop: '1.5px solid rgba(212,175,55,0.12)', borderRight: '1.5px solid rgba(212,175,55,0.12)' }}
             />
-            <div className="absolute bottom-6 left-6 w-2.5 h-2.5 pointer-events-none"
-              style={{ borderBottom: '1.5px solid rgba(212,175,55,0.15)', borderLeft: '1.5px solid rgba(212,175,55,0.15)' }}
+            <div className="absolute bottom-5 left-5 w-3 h-3 pointer-events-none"
+              style={{ borderBottom: '1.5px solid rgba(212,175,55,0.12)', borderLeft: '1.5px solid rgba(212,175,55,0.12)' }}
             />
-            <div className="absolute bottom-6 right-6 w-2.5 h-2.5 pointer-events-none"
-              style={{ borderBottom: '1.5px solid rgba(212,175,55,0.15)', borderRight: '1.5px solid rgba(212,175,55,0.15)' }}
+            <div className="absolute bottom-5 right-5 w-3 h-3 pointer-events-none"
+              style={{ borderBottom: '1.5px solid rgba(212,175,55,0.12)', borderRight: '1.5px solid rgba(212,175,55,0.12)' }}
             />
 
-            {/* Background radial glow */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <motion.div
                 className="w-56 h-56 md:w-72 md:h-72 rounded-full"
-                style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 60%)' }}
-                animate={{ scale: isHovered ? 1.2 : 1, opacity: isHovered ? 0.2 : 0.1 }}
+                style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 60%)' }}
+                animate={{ scale: isHovered ? 1.2 : 1, opacity: isHovered ? 0.2 : 0.08 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               />
             </div>
@@ -133,58 +124,36 @@ function ProjectCard({ project, index }) {
               <motion.div
                 animate={{ scale: isHovered ? 1.05 : 1 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="w-32 h-32 md:w-40 md:h-40"
+                className="w-28 h-28 md:w-36 md:h-36"
               >
                 <ProjectLogo project={project} />
               </motion.div>
             </div>
           </div>
 
-          {/* Separator line */}
-          <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-gold/10 to-transparent mx-0" />
+          <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-gold/10 to-transparent" />
 
-          {/* Right: Content */}
           <div className="relative flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-10 pb-8 md:pb-10 pt-4 md:pt-10">
-            <motion.div
+            <div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               className="space-y-3"
             >
-              {/* Category */}
-              <motion.span
-                custom={0}
-                variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
-                className="block label-sm text-gold/50"
-              >
+              <span className="block label-sm text-gold/50">
                 {project.category}
-              </motion.span>
+              </span>
 
-              {/* Title */}
-              <motion.h3
-                custom={1}
-                variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
-                className="heading-2 text-white"
-              >
+              <h3 className="heading-2 text-white">
                 {project.title}
-              </motion.h3>
+              </h3>
 
-              {/* Description */}
-              <motion.p
-                custom={2}
-                variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
-                className="body-base text-white/45 max-w-lg"
-              >
+              <p className="body-base text-white/45 max-w-lg">
                 {project.desc}
-              </motion.p>
+              </p>
 
-              {/* Tags */}
               {project.tags && (
-                <motion.div
-                  custom={3}
-                  variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
-                  className="flex flex-wrap gap-1.5 pt-1"
-                >
+                <div className="flex flex-wrap gap-1.5 pt-1">
                   {project.tags.map((tag) => (
                     <span key={tag}
                       className="label-sm px-2.5 py-1 rounded-full transition-all duration-300 hover:bg-gold/10 hover:border-gold/40"
@@ -193,14 +162,10 @@ function ProjectCard({ project, index }) {
                       {tag}
                     </span>
                   ))}
-                </motion.div>
+                </div>
               )}
 
-              {/* Features row + CTA */}
-              <motion.div
-                custom={4}
-                variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
-                className="flex flex-wrap items-center justify-between gap-3 pt-3"
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-3"
                 style={{ borderTop: '1px solid rgba(212,175,55,0.08)' }}
               >
                 {project.features && (
@@ -228,8 +193,8 @@ function ProjectCard({ project, index }) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -265,7 +230,6 @@ export default function Showcase() {
     <section ref={sectionRef} id="showcase" className="section-padding relative overflow-hidden"
       style={{ background: 'linear-gradient(180deg, #050505 0%, #0a0804 50%, #050505 100%)' }}
     >
-      {/* 3D Background */}
       <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform">
         <Suspense fallback={null}>
           <Scene3D cameraPosition={[0, 0, 10]} frameloop="demand" dpr={[1, 1.2]}>
@@ -276,7 +240,6 @@ export default function Showcase() {
         </Suspense>
       </div>
 
-      {/* Gold orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
           style={{
@@ -289,7 +252,6 @@ export default function Showcase() {
       <div className="absolute inset-0 grid-overlay opacity-10 pointer-events-none" />
 
       <div className="max-w-premium relative z-10">
-        {/* Section Header */}
         <div className="text-center mb-14 md:mb-18">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -299,7 +261,7 @@ export default function Showcase() {
             className="inline-flex items-center gap-3 mb-4"
           >
             <span className="w-6 h-px bg-gold/30" />
-            <span className="font-accent text-gold/60 text-sm italic tracking-wide">Our Work</span>
+            <span className="accent-text text-gold/60 text-sm">Our Work</span>
             <span className="w-6 h-px bg-gold/30" />
           </motion.div>
 
@@ -325,7 +287,6 @@ export default function Showcase() {
           </motion.p>
         </div>
 
-        {/* Project Cards Grid */}
         <div className="max-w-5xl mx-auto space-y-8 md:space-y-10">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />

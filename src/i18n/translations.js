@@ -1,3 +1,7 @@
+const brand = {
+  statement: "We design, develop, and scale premium digital experiences that help brands grow, stand out, and succeed in the digital world.",
+}
+
 const translations = {
   en: {
     nav: {
@@ -6,15 +10,15 @@ const translations = {
       projects: 'Projects',
       services: 'Services',
       contact: 'Contact',
-      startProject: 'Start Project',
+      startProject: 'Start a Project',
     },
     hero: {
-      tag: 'Cinematic Digital Studio',
-      headline1: 'We craft premium digital',
-      headline2: 'experiences that scale.',
-      sub: 'From clean websites to full-scale platforms — we engineer digital ecosystems with performance, purpose, and precision.',
-      ctaStart: 'Start a Project',
-      ctaExplore: 'Explore Services',
+      tag: 'Premium Digital Studio',
+      headline1: 'We design, develop,',
+      headline2: 'and scale digital excellence.',
+      sub: brand.statement,
+      ctaStart: 'Start Your Project',
+      ctaExplore: 'View Our Work',
     },
     trust: {
       kicker: 'Built for excellence',
@@ -207,12 +211,12 @@ const translations = {
       startProject: 'Commander',
     },
     hero: {
-      tag: 'Studio Digital Cinématographique',
-      headline1: 'Des expériences numériques',
-      headline2: 'premium qui évoluent.',
-      sub: 'Nous créons des expériences numériques premium — des sites web propres aux plateformes complètes — avec performance, intention et précision.',
-      ctaStart: 'Lancer un Projet',
-      ctaExplore: 'Explorer nos Services',
+      tag: 'Studio Digital Premium',
+      headline1: 'Nous concevons, développons,',
+      headline2: 'et faisons grandir l\'excellence digitale.',
+      sub: "Nous concevons, développons et faisons grandir des expériences digitales premium qui aident les marques à se développer, à se démarquer et à réussir dans le monde numérique.",
+      ctaStart: 'Lancer Votre Projet',
+      ctaExplore: 'Voir Nos Réalisations',
     },
     trust: {
       kicker: 'Conçu pour l\'excellence',

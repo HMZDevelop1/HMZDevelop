@@ -7,8 +7,10 @@ import Navbar from './components/Navbar'
 import WelcomeModal from './components/WelcomeModal'
 import Hero from './sections/Hero'
 import WhyHMZ from './sections/WhyHMZ'
+import Trust from './sections/Trust'
 import Process from './sections/Process'
 import Showcase from './sections/Showcase'
+import Skills from './sections/Skills'
 import Services from './sections/Services'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
@@ -57,6 +59,14 @@ export default function App() {
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
+                <Trust />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
                 <Process />
               </motion.div>
               <motion.div
@@ -66,6 +76,14 @@ export default function App() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
                 <Showcase />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <Skills />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}

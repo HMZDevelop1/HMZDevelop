@@ -30,24 +30,6 @@ export default function Hero() {
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out', delay: 1.8 }
       )
-
-      gsap.to('.hero-wordmark-hmz', {
-        textShadow: '0 0 40px rgba(212,175,55,0.3), 0 0 80px rgba(212,175,55,0.1)',
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        delay: 2.5,
-      })
-
-      gsap.to('.hero-wordmark-dev', {
-        textShadow: '0 0 40px rgba(245,245,245,0.15), 0 0 80px rgba(245,245,245,0.04)',
-        duration: 2.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        delay: 2.5,
-      })
     }, containerRef)
 
     return () => ctx.revert()
@@ -59,10 +41,8 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Grid overlay */}
       <div className="absolute inset-0 grid-overlay opacity-30" />
 
-      {/* 3D Scene */}
       <Suspense fallback={<SceneLoading />}>
         <Scene3D cameraPosition={[0, 0, 8]} frameloop="always" environment dpr={[1, 1.5]}>
           <Logo3D mouseInfluence={0.2} />
@@ -79,7 +59,6 @@ export default function Hero() {
         </Scene3D>
       </Suspense>
 
-      {/* Animated background orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -100,7 +79,6 @@ export default function Hero() {
       </div>
 
       <div ref={textRef} className="max-w-premium relative z-10 text-center">
-        {/* Tag */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -111,24 +89,22 @@ export default function Hero() {
           <span className="label-sm text-muted/90">{t.hero.tag}</span>
         </motion.div>
 
-        {/* Logo wordmark */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95, filter: 'blur(12px)' }}
           animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           transition={{ delay: 0.5, duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
           className="mb-6"
         >
-          <span className="hero-wordmark-hmz display-hero gold-gradient-heavy inline-block text-glow"
+          <span className="display-hero gold-gradient-heavy inline-block text-glow"
             style={{ textShadow: '0 0 80px rgba(212,175,55,0.25), 0 0 160px rgba(212,175,55,0.08)' }}>
             HMZ
           </span>
-          <span className="hero-wordmark-dev display-hero text-white/95 inline-block text-glow-strong"
+          <span className="display-hero text-white/95 inline-block text-glow-strong"
             style={{ textShadow: '0 0 60px rgba(255,255,255,0.1), 0 0 120px rgba(255,255,255,0.04)' }}>
             Develop
           </span>
         </motion.div>
 
-        {/* Main headline */}
         <h1 className="overflow-hidden mb-4">
           <span className="hero-line block heading-1 text-white/90">
             {t.hero.headline1}
@@ -138,12 +114,10 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Subheadline */}
         <p className="hero-sub body-lg text-muted/80 max-w-2xl mx-auto px-4 sm:px-0">
           {t.hero.sub}
         </p>
 
-        {/* CTA Buttons */}
         <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10">
           <MagneticButton
             href="#contact"
@@ -153,7 +127,7 @@ export default function Hero() {
             {t.hero.ctaStart}
           </MagneticButton>
           <MagneticButton
-            href="#services"
+            href="#showcase"
             className="px-8 py-4 rounded-full btn-text"
             variant="outline"
           >
@@ -162,7 +136,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
     </section>
   )
