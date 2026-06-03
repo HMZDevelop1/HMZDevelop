@@ -35,7 +35,7 @@ export default function App() {
   }, [])
 
   return (
-    <ReactLenis root options={{ lerp: 0.08, duration: 1.4, smoothWheel: true, wheelMultiplier: 0.85, touchMultiplier: 1.5, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) }}>
+    <ReactLenis root options={{ lerp: 0.12, duration: 1.2, smoothWheel: true, wheelMultiplier: 0.85, touchMultiplier: 1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) }}>
       <LanguageProvider>
         <CurrencyProvider>
           <div ref={containerRef} className="grain">

@@ -27,17 +27,28 @@ export default function GlowCard({
   const cardRef = useRef(null)
 
   useEffect(() => {
+    const card = cardRef.current
+    if (!card) return
+
     const syncPointer = (e) => {
       const { clientX: x, clientY: y } = e
-      if (cardRef.current) {
-        cardRef.current.style.setProperty('--x', x.toFixed(2))
-        cardRef.current.style.setProperty('--xp', (x / window.innerWidth).toFixed(2))
-        cardRef.current.style.setProperty('--y', y.toFixed(2))
-        cardRef.current.style.setProperty('--yp', (y / window.innerHeight).toFixed(2))
-      }
+      card.style.setProperty('--x', x.toFixed(2))
+      card.style.setProperty('--xp', (x / window.innerWidth).toFixed(2))
+      card.style.setProperty('--y', y.toFixed(2))
+      card.style.setProperty('--yp', (y / window.innerHeight).toFixed(2))
     }
-    document.addEventListener('pointermove', syncPointer)
-    return () => document.removeEventListener('pointermove', syncPointer)
+
+    const handleEnter = () => document.addEventListener('pointermove', syncPointer, { passive: true })
+    const handleLeave = () => document.removeEventListener('pointermove', syncPointer)
+
+    card.addEventListener('pointerenter', handleEnter, { passive: true })
+    card.addEventListener('pointerleave', handleLeave, { passive: true })
+
+    return () => {
+      document.removeEventListener('pointermove', syncPointer)
+      card.removeEventListener('pointerenter', handleEnter)
+      card.removeEventListener('pointerleave', handleLeave)
+    }
   }, [])
 
   const { base, spread } = glowColorMap[glowColor] || glowColorMap.gold
@@ -72,7 +83,6 @@ export default function GlowCard({
       backgroundAttachment: 'fixed',
       border: 'var(--border-size) solid rgba(212,175,55,0.08)',
       position: 'relative',
-      touchAction: 'none',
     }
     if (width !== undefined) s.width = typeof width === 'number' ? `${width}px` : width
     if (height !== undefined) s.height = typeof height === 'number' ? `${height}px` : height

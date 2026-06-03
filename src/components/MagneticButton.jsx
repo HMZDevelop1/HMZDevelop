@@ -39,6 +39,7 @@ export default function MagneticButton({ children, href, className = '', variant
       onMouseLeave={handleMouseLeave}
       className={`${baseClasses} ${variants[variant]} ${className} ${disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer'}`}
       style={{
+        touchAction: 'manipulation',
         transformStyle: 'preserve-3d',
         transform: disabled ? 'none' : `perspective(400px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
         transition: isHovered ? 'transform 0.08s linear' : 'transform 0.5s ease-out',
