@@ -2,8 +2,8 @@ import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 
 const shapeConfig = {
-  '🌸': { geometry: 'torusKnot', color: '#D4AF37', metalness: 0.95, roughness: 0.1 },
-  '💇‍♀️': { geometry: 'icosahedron', color: '#D4AF37', metalness: 0.9, roughness: 0.15 },
+  '🌸': { geometry: 'torusKnot', color: '#B87333', metalness: 0.95, roughness: 0.1 },
+  '💇‍♀️': { geometry: 'icosahedron', color: '#B87333', metalness: 0.9, roughness: 0.15 },
 }
 
 const geometries = {

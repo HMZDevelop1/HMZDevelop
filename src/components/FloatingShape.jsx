@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 
 export default function FloatingShape({
   geometry = 'torusKnot',
-  color = '#D4AF37',
+  color = '#B87333',
   metalness = 0.9,
   roughness = 0.15,
   scale = 1,

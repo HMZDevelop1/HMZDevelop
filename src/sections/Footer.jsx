@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
           <a href="#hero" className="inline-flex items-center mb-4 group">
-            <span className="font-heading text-2xl font-bold tracking-tight gold-gradient-heavy" style={{ textShadow: '0 0 40px rgba(212,175,55,0.25), 0 0 80px rgba(212,175,55,0.08)' }}>
+            <span className="font-heading text-2xl font-bold tracking-tight gold-gradient-heavy" style={{ textShadow: '0 0 40px rgba(184,115,51,0.2), 0 0 80px rgba(184,115,51,0.06)' }}>
               HMZ
             </span>
             <span className="font-heading text-2xl font-bold tracking-tight text-white/95 group-hover:text-white transition-colors" style={{ textShadow: '0 0 30px rgba(255,255,255,0.08)' }}>Develop</span>

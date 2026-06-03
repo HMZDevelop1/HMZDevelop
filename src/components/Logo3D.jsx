@@ -30,7 +30,7 @@ export default function Logo3D({ mouseInfluence = 0.2 }) {
       >
         HMZ
         <meshPhysicalMaterial
-          color="#D4AF37"
+          color="#B87333"
           metalness={0.95}
           roughness={0.08}
           envMapIntensity={2.5}

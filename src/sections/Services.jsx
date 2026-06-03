@@ -32,14 +32,14 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
           }`}
           style={{
             background: popular
-              ? 'linear-gradient(145deg, rgba(18,17,20,0.97), rgba(10,10,12,0.99))'
-              : 'linear-gradient(145deg, rgba(11,11,13,0.92), rgba(5,5,5,0.96))',
+              ? 'linear-gradient(145deg, rgba(18,17,20,0.97), rgba(16,16,16,0.99))'
+              : 'linear-gradient(145deg, rgba(16,16,16,0.92), rgba(16,16,16,0.96))',
             boxShadow: popular
-              ? '0 0 60px rgba(212,175,55,0.1), 0 0 120px rgba(212,175,55,0.03), inset 0 1px 0 rgba(212,175,55,0.15)'
-              : '0 0 30px rgba(212,175,55,0.02), inset 0 1px 0 rgba(212,175,55,0.06)',
+              ? '0 0 60px rgba(184,115,51,0.1), 0 0 120px rgba(184,115,51,0.03), inset 0 1px 0 rgba(184,115,51,0.15)'
+              : '0 0 30px rgba(184,115,51,0.02), inset 0 1px 0 rgba(184,115,51,0.06)',
             border: popular
-              ? '1px solid rgba(212,175,55,0.15)'
-              : '1px solid rgba(212,175,55,0.06)',
+              ? '1px solid rgba(184,115,51,0.15)'
+              : '1px solid rgba(184,115,51,0.06)',
           }}
         >
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/70 to-transparent opacity-90" />
@@ -48,13 +48,13 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
             <>
               <div className="absolute -top-20 -right-20 w-44 h-44 rounded-full"
                 style={{
-                  background: 'radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(184,115,51,0.15), transparent 70%)',
                   filter: 'blur(40px)',
                 }}
               />
               <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full"
                 style={{
-                  background: 'radial-gradient(circle, rgba(242,210,122,0.08), transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(217,160,102,0.08), transparent 70%)',
                   filter: 'blur(30px)',
                 }}
               />
@@ -63,7 +63,7 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
 
           <div className="text-center pt-8 pb-5">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl group-hover:scale-110 group-hover:-translate-y-1.5 transition-all duration-500 text-gold group-hover:shadow-xl group-hover:shadow-gold/20"
-              style={{ background: 'rgba(212,175,55,0.08)' }}
+              style={{ background: 'rgba(184,115,51,0.08)' }}
             >
               {icon}
             </div>
@@ -162,8 +162,8 @@ export default function Services() {
         dot.style.cssText = `
           width: ${size}px; height: ${size}px;
           left: ${x}%; top: ${y}%;
-          background: rgba(212,175,55,${Math.random() * 0.12 + 0.04});
-          box-shadow: 0 0 ${size * 2}px rgba(212,175,55,0.08);
+          background: rgba(184,115,51,${Math.random() * 0.12 + 0.04});
+          box-shadow: 0 0 ${size * 2}px rgba(184,115,51,0.08);
           animation: skills-float ${duration}s ease-in-out ${delay}s infinite;
         `
         dotsContainer.appendChild(dot)
@@ -207,17 +207,17 @@ export default function Services() {
       className="section-padding relative overflow-hidden"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#050505] to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#101010] to-black" />
 
         <div className="absolute top-0 -right-1/4 w-[80%] h-[60%] services-orb-1 rounded-full"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.06) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(184,115,51,0.06) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
         />
         <div className="absolute bottom-0 -left-1/4 w-[80%] h-[60%] services-orb-2 rounded-full"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(242,210,122,0.04) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(217,160,102,0.04) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
         />
@@ -225,8 +225,8 @@ export default function Services() {
         <div className="absolute inset-0 opacity-[0.015]"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(212,175,55,1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(212,175,55,1) 1px, transparent 1px)
+              linear-gradient(rgba(184,115,51,1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(184,115,51,1) 1px, transparent 1px)
             `,
             backgroundSize: '60px 60px',
           }}

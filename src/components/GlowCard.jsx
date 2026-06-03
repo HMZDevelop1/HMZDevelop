@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 
 const glowColorMap = {
-  gold: { base: 45, spread: 30 },
+  gold: { base: 25, spread: 30 },
   blue: { base: 220, spread: 200 },
   purple: { base: 280, spread: 300 },
   green: { base: 120, spread: 200 },
@@ -65,7 +65,7 @@ export default function GlowCard({
       '--radius': '24',
       '--border': '1',
       '--backdrop': 'transparent',
-      '--backup-border': 'rgba(212,175,55,0.08)',
+      '--backup-border': 'rgba(184,115,51,0.08)',
       '--size': '250',
       '--outer': '1',
       '--border-size': 'calc(var(--border, 2) * 1px)',
@@ -81,7 +81,7 @@ export default function GlowCard({
       backgroundSize: 'calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))',
       backgroundPosition: '50% 50%',
       backgroundAttachment: 'fixed',
-      border: 'var(--border-size) solid rgba(212,175,55,0.08)',
+      border: 'var(--border-size) solid rgba(184,115,51,0.08)',
       position: 'relative',
     }
     if (width !== undefined) s.width = typeof width === 'number' ? `${width}px` : width
@@ -113,7 +113,7 @@ export default function GlowCard({
             calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
             calc(var(--x, 0) * 1px)
             calc(var(--y, 0) * 1px),
-            hsl(var(--hue, 45) 100% 50% / 0.6), transparent 100%
+            hsl(var(--hue, 25) 100% 50% / 0.6), transparent 100%
           );
           filter: brightness(2);
         }
@@ -122,7 +122,7 @@ export default function GlowCard({
             calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
             calc(var(--x, 0) * 1px)
             calc(var(--y, 0) * 1px),
-            hsl(45 100% 80% / 0.5), transparent 100%
+            hsl(25 100% 70% / 0.5), transparent 100%
           );
         }
         [data-glow] [data-glow] {

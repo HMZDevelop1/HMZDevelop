@@ -100,13 +100,13 @@ export default function Process() {
       {/* Background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(184,115,51,0.04) 0%, transparent 70%)',
           filter: 'blur(80px)',
         }}
       />
       <div className="absolute bottom-1/3 left-1/2 -translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(242,210,122,0.03) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(217,160,102,0.03) 0%, transparent 70%)',
           filter: 'blur(60px)',
         }}
       />
@@ -139,7 +139,7 @@ export default function Process() {
           <div
             ref={progressRef}
             className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-gold via-soft-gold to-gold rounded-full origin-left"
-            style={{ boxShadow: '0 0 15px rgba(212,175,55,0.4), 0 0 30px rgba(212,175,55,0.1)' }}
+            style={{ boxShadow: '0 0 15px rgba(184,115,51,0.4), 0 0 30px rgba(184,115,51,0.1)' }}
           />
         </div>
 
