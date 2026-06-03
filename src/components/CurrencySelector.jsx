@@ -43,8 +43,8 @@ export default function CurrencySelector() {
             className="absolute top-full right-0 mt-2 w-44 rounded-xl overflow-hidden z-50"
             style={{
               background: 'linear-gradient(145deg, rgba(18,17,20,0.97), rgba(10,10,12,0.99))',
-              border: '1px solid rgba(184,115,51,0.15)',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(184,115,51,0.05)',
+              border: '1px solid rgba(229,228,226,0.08)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(229,228,226,0.025)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
             }}

@@ -2,9 +2,9 @@ import React, { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 
 const shapes = [
-  { geometry: 'torus', color: '#B87333', radius: 2.5, speed: 0.3, size: 0.5, phase: 0 },
-  { geometry: 'icosahedron', color: '#D9A066', radius: 3.2, speed: -0.25, size: 0.4, phase: 1.2 },
-  { geometry: 'octahedron', color: '#B87333', radius: 1.8, speed: 0.4, size: 0.35, phase: 2.5 },
+  { geometry: 'torus', color: '#E5E4E2', radius: 2.5, speed: 0.3, size: 0.5, phase: 0 },
+  { geometry: 'icosahedron', color: '#BFC0C0', radius: 3.2, speed: -0.25, size: 0.4, phase: 1.2 },
+  { geometry: 'octahedron', color: '#E5E4E2', radius: 1.8, speed: 0.4, size: 0.35, phase: 2.5 },
   { geometry: 'torusKnot', color: '#E8C54A', radius: 3.8, speed: -0.2, size: 0.3, phase: 0.8 },
   { geometry: 'dodecahedron', color: '#C9A84C', radius: 2.0, speed: 0.35, size: 0.25, phase: 1.8 },
 ]

@@ -57,7 +57,7 @@ export default function MagneticButton({ children, href, className = '', variant
       <span
         className="absolute inset-0 pointer-events-none rounded-inherit"
         style={{
-          boxShadow: isHovered && !disabled ? 'inset 0 0 20px rgba(184,115,51,0.15)' : 'inset 0 0 0 rgba(184,115,51,0)',
+          boxShadow: isHovered && !disabled ? 'inset 0 0 20px rgba(229,228,226,0.08)' : 'inset 0 0 0 rgba(229,228,226,0)',
           transition: 'box-shadow 0.4s ease',
         }}
       />

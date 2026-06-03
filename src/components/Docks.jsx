@@ -27,8 +27,8 @@ export default function Docks() {
         background: 'rgba(13,11,8,0.8)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        border: '1px solid rgba(184,115,51,0.15)',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 40px rgba(184,115,51,0.04)',
+        border: '1px solid rgba(229,228,226,0.08)',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 40px rgba(229,228,226,0.02)',
       }}
     >
       <button
@@ -39,7 +39,7 @@ export default function Docks() {
             : 'bg-transparent text-white/40 hover:text-gold/60'
         }`}
         style={{
-          borderRight: '1px solid rgba(184,115,51,0.1)',
+          borderRight: '1px solid rgba(229,228,226,0.05)',
         }}
         aria-label="Dark Mode"
       >
@@ -55,7 +55,7 @@ export default function Docks() {
             : 'bg-transparent text-white/40 hover:text-gold/60'
         }`}
         style={{
-          borderRight: '1px solid rgba(184,115,51,0.1)',
+          borderRight: '1px solid rgba(229,228,226,0.05)',
         }}
         aria-label="Light Mode"
       >

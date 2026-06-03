@@ -137,22 +137,22 @@ function CategoryCard({ category, index }) {
       <div
         className="group relative rounded-2xl p-6 h-full backdrop-blur-sm card-glow-border"
         style={{
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(184,115,51,0.03) 100%)',
-          border: '1px solid rgba(184,115,51,0.08)',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(229,228,226,0.02) 100%)',
+          border: '1px solid rgba(229,228,226,0.05)',
           boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
           transformStyle: 'preserve-3d',
         }}
       >
         <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
-            background: 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(184,115,51,0.06), transparent 60%)',
+            background: 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(229,228,226,0.04), transparent 60%)',
           }}
         />
 
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-5">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center text-gold"
-              style={{ background: 'rgba(184,115,51,0.08)' }}
+              style={{ background: 'rgba(229,228,226,0.05)' }}
             >
               {category.icon}
             </div>
@@ -193,8 +193,8 @@ export default function Skills() {
         dot.style.cssText = `
           width: ${size}px; height: ${size}px;
           left: ${x}%; top: ${y}%;
-          background: rgba(184,115,51,${Math.random() * 0.15 + 0.05});
-          box-shadow: 0 0 ${size * 2}px rgba(184,115,51,0.1);
+          background: rgba(229,228,226,${(Math.random() * 0.15 + 0.05) * 0.6});
+          box-shadow: 0 0 ${size * 2}px rgba(229,228,226,0.06);
           animation: skills-float ${duration}s ease-in-out ${delay}s infinite;
         `
         dotsContainer.appendChild(dot)
@@ -259,13 +259,13 @@ export default function Skills() {
         {/* Flowing gradient orbs */}
         <div className="absolute top-0 -left-1/4 w-[80%] h-[60%] skills-orb-1 rounded-full"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(184,115,51,0.06) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(229,228,226,0.04) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
         />
         <div className="absolute bottom-0 -right-1/4 w-[80%] h-[60%] skills-orb-2 rounded-full"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(217,160,102,0.04) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at center, rgba(191,192,192,0.02) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
         />
@@ -274,8 +274,8 @@ export default function Skills() {
         <div className="absolute inset-0 opacity-[0.015]"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(184,115,51,1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(184,115,51,1) 1px, transparent 1px)
+              linear-gradient(rgba(229,228,226,0.6) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(229,228,226,0.6) 1px, transparent 1px)
             `,
             backgroundSize: '60px 60px',
           }}

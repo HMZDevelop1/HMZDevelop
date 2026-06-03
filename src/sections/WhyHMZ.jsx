@@ -57,7 +57,7 @@ export default function WhyHMZ() {
       <div className="absolute inset-0 grid-overlay opacity-[0.06] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(184,115,51,0.04) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(229,228,226,0.02) 0%, transparent 70%)',
           filter: 'blur(60px)',
         }}
       />

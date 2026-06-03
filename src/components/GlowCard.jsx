@@ -65,7 +65,7 @@ export default function GlowCard({
       '--radius': '24',
       '--border': '1',
       '--backdrop': 'transparent',
-      '--backup-border': 'rgba(184,115,51,0.08)',
+      '--backup-border': 'rgba(229,228,226,0.05)',
       '--size': '250',
       '--outer': '1',
       '--border-size': 'calc(var(--border, 2) * 1px)',
@@ -81,7 +81,7 @@ export default function GlowCard({
       backgroundSize: 'calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))',
       backgroundPosition: '50% 50%',
       backgroundAttachment: 'fixed',
-      border: 'var(--border-size) solid rgba(184,115,51,0.08)',
+      border: 'var(--border-size) solid rgba(229,228,226,0.05)',
       position: 'relative',
     }
     if (width !== undefined) s.width = typeof width === 'number' ? `${width}px` : width

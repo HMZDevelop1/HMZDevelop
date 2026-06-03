@@ -54,12 +54,12 @@ export function createApp() {
         try {
           const emailBody = `
         <div style="font-family: system-ui; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #B87333; border-bottom: 2px solid #B87333; padding-bottom: 12px;">
+          <h2 style="color: #E5E4E2; border-bottom: 2px solid #E5E4E2; padding-bottom: 12px;">
             ✦ New Inquiry — HMZDevelop
           </h2>
 
           ${date && time ? `
-          <div style="background: #f5ede4; border: 1px solid #B87333; border-radius: 8px; padding: 16px; margin: 16px 0;">
+          <div style="background: #f5ede4; border: 1px solid #E5E4E2; border-radius: 8px; padding: 16px; margin: 16px 0;">
             <h3 style="margin: 0 0 8px; color: #b8960f;">📅 Google Meet Booking</h3>
             <p style="margin: 0; color: #333;"><strong>Date:</strong> ${date}</p>
             <p style="margin: 0; color: #333;"><strong>Time:</strong> ${time}</p>
@@ -74,7 +74,7 @@ export function createApp() {
             <tr>
               <td style="padding: 10px; border: 1px solid #ddd; color: #888;">Email</td>
               <td style="padding: 10px; border: 1px solid #ddd; color: #333;">
-                <a href="mailto:${email}" style="color: #B87333;">${email}</a>
+                <a href="mailto:${email}" style="color: #E5E4E2;">${email}</a>
               </td>
             </tr>
             ${projectType ? `
@@ -99,7 +99,7 @@ export function createApp() {
           <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;" />
           <p style="color: #aaa; font-size: 12px;">
             ID: ${entry.id} &middot;
-            <a href="${process.env.SITE_URL || 'http://localhost:5173'}/admin" style="color: #B87333;">View in dashboard</a>
+            <a href="${process.env.SITE_URL || 'http://localhost:5173'}/admin" style="color: #E5E4E2;">View in dashboard</a>
           </p>
         </div>
       `
@@ -193,11 +193,11 @@ function getDashboardHtml() {
       font-size: 24px;
       color: #fff;
     }
-    .header h1 span { color: #B87333; }
+    .header h1 span { color: #E5E4E2; }
     .header .badge {
       background: rgba(184, 115, 51, 0.1);
       border: 1px solid rgba(184, 115, 51, 0.2);
-      color: #B87333;
+      color: #E5E4E2;
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 13px;
@@ -219,7 +219,7 @@ function getDashboardHtml() {
     .stat-card .value {
       font-family: 'Playfair Display', serif;
       font-size: 32px;
-      color: #B87333;
+      color: #E5E4E2;
     }
     .stat-card .label {
       font-size: 12px;
@@ -245,7 +245,7 @@ function getDashboardHtml() {
       transition: border-color 0.2s;
     }
     .filters input:focus, .filters select:focus {
-      border-color: #B87333;
+      border-color: #E5E4E2;
     }
     .filters input { flex: 1; min-width: 200px; }
     .message-card {
@@ -261,7 +261,7 @@ function getDashboardHtml() {
       background: rgba(255,255,255,0.04);
     }
     .message-card.unread {
-      border-left: 3px solid #B87333;
+      border-left: 3px solid #E5E4E2;
       background: rgba(184, 115, 51, 0.03);
     }
     .message-header {
@@ -288,7 +288,7 @@ function getDashboardHtml() {
     }
     .message-info .meta .tag {
       background: rgba(184, 115, 51, 0.1);
-      color: #B87333;
+      color: #E5E4E2;
       padding: 2px 8px;
       border-radius: 4px;
       font-size: 11px;
@@ -309,8 +309,8 @@ function getDashboardHtml() {
       transition: all 0.2s;
     }
     .message-actions .mark-btn:hover {
-      border-color: #B87333;
-      color: #B87333;
+      border-color: #E5E4E2;
+      color: #E5E4E2;
     }
     .message-actions .delete-btn:hover {
       border-color: #ef4444;
@@ -329,7 +329,7 @@ function getDashboardHtml() {
       margin-bottom: 12px;
       display: inline-block;
     }
-    .message-body .booking strong { color: #B87333; }
+    .message-body .booking strong { color: #E5E4E2; }
     .empty {
       text-align: center;
       padding: 64px 32px;
@@ -341,7 +341,7 @@ function getDashboardHtml() {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: #B87333;
+      background: #E5E4E2;
       color: #0a0a0a;
       padding: 12px 24px;
       border-radius: 8px;

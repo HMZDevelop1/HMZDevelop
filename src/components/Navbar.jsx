@@ -68,7 +68,7 @@ export default function Navbar() {
     >
       <div className={`relative transition-all duration-700 ${
         scrolled
-          ? 'bg-[rgba(16,16,16,0.85)] shadow-[0_1px_0_rgba(184,115,51,0.12)]'
+          ? 'bg-[rgba(18,18,18,0.85)] shadow-[0_1px_0_rgba(229,228,226,0.06)]'
           : 'bg-transparent'
       }`}
         style={{
@@ -82,7 +82,7 @@ export default function Navbar() {
         >
           <div className="w-full h-full animate-shimmer-gold"
             style={{
-              background: 'linear-gradient(90deg, transparent, rgba(184,115,51,0.4), rgba(217,160,102,0.2), rgba(184,115,51,0.4), transparent)',
+              background: 'linear-gradient(90deg, transparent, rgba(229,228,226,0.2), rgba(191,192,192,0.1), rgba(229,228,226,0.2), transparent)',
             }}
           />
         </div>
@@ -91,7 +91,7 @@ export default function Navbar() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-px bg-gold/30 transition-all duration-700"
           style={{
             width: scrolled ? '40%' : '0%',
-            boxShadow: scrolled ? '0 0 20px rgba(184,115,51,0.2), 0 0 60px rgba(184,115,51,0.1)' : 'none',
+            boxShadow: scrolled ? '0 0 20px rgba(229,228,226,0.1), 0 0 60px rgba(229,228,226,0.05)' : 'none',
           }}
         />
 
@@ -105,7 +105,7 @@ export default function Navbar() {
               whileHover={{ rotateY: 6, scale: 1.03 }}
               transition={{ type: 'spring', stiffness: 300, damping: 14 }}
               className="font-heading text-xl md:text-2xl font-bold tracking-tight gold-gradient-heavy block"
-              style={{ textShadow: '0 0 40px rgba(184,115,51,0.25), 0 0 80px rgba(184,115,51,0.08)' }}
+              style={{ textShadow: '0 0 40px rgba(229,228,226,0.12), 0 0 80px rgba(229,228,226,0.04)' }}
             >
               HMZ
             </motion.span>
@@ -140,13 +140,14 @@ export default function Navbar() {
                       className="absolute inset-0 rounded-lg transition-all duration-300"
                       style={{
                         background: isActive
-                          ? 'linear-gradient(135deg, rgba(184,115,51,0.15), rgba(217,160,102,0.05))'
-                          : 'linear-gradient(135deg, rgba(184,115,51,0.07), rgba(217,160,102,0.015))',
-                        border: isActive ? '1px solid rgba(184,115,51,0.2)' : '1px solid rgba(184,115,51,0.05)',
+                          ? 'linear-gradient(135deg, rgba(229,228,226,0.08), rgba(191,192,192,0.03))'
+                          : 'linear-gradient(135deg, rgba(229,228,226,0.04), rgba(191,192,192,0.01))',
+                        border: isActive ? '1px solid rgba(229,228,226,0.1)' : '1px solid rgba(229,228,226,0.025)',
+
                         opacity: isActive ? 1 : 0,
-                        boxShadow: isActive ? '0 0 20px rgba(184,115,51,0.06), inset 0 0 20px rgba(184,115,51,0.03)' : 'none',
+                        boxShadow: isActive ? '0 0 20px rgba(229,228,226,0.035), inset 0 0 20px rgba(229,228,226,0.015)' : 'none',
                       }}
-                      whileHover={{ opacity: 1, boxShadow: '0 0 30px rgba(184,115,51,0.1), inset 0 0 20px rgba(184,115,51,0.04)' }}
+                      whileHover={{ opacity: 1, boxShadow: '0 0 30px rgba(229,228,226,0.06), inset 0 0 20px rgba(229,228,226,0.025)' }}
                       transition={{ duration: 0.25 }}
                     />
                     <span
@@ -163,8 +164,8 @@ export default function Navbar() {
                       className="absolute -bottom-px left-1/2 -translate-x-1/2 h-[2px] rounded-full"
                       style={{
                         width: isActive ? '60%' : 0,
-                        background: 'linear-gradient(90deg, transparent, #B87333, #D9A066, #B87333, transparent)',
-                        boxShadow: isActive ? '0 0 15px rgba(184,115,51,0.5), 0 0 30px rgba(184,115,51,0.2)' : 'none',
+                        background: 'linear-gradient(90deg, transparent, #E5E4E2, #BFC0C0, #E5E4E2, transparent)',
+                        boxShadow: isActive ? '0 0 15px rgba(229,228,226,0.3), 0 0 30px rgba(229,228,226,0.1)' : 'none',
                         transform: 'translateZ(6px)',
                       }}
                       whileHover={{ width: '60%' }}
@@ -176,7 +177,7 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-1.5 ml-4 pl-4"
-              style={{ borderLeft: '1px solid rgba(184,115,51,0.1)' }}
+              style={{ borderLeft: '1px solid rgba(229,228,226,0.05)' }}
             >
               <CurrencySelector />
 
@@ -241,7 +242,7 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 md:hidden"
-            style={{ background: 'rgba(16,16,16,0.98)' }}
+            style={{ background: 'rgba(18,18,18,0.98)' }}
           >
             <div className="flex flex-col items-center justify-center h-full gap-6 px-6">
               {navLinks.map((link, i) => (

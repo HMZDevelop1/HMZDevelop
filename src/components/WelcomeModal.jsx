@@ -49,15 +49,15 @@ export default function WelcomeModal() {
             className="relative w-full max-w-lg rounded-3xl overflow-hidden"
             style={{
               perspective: '800px',
-              background: 'linear-gradient(160deg, rgba(16,16,16,0.98), rgba(16,16,16,0.99))',
-              border: '1px solid rgba(184,115,51,0.12)',
-              boxShadow: '0 0 80px rgba(184,115,51,0.08), 0 0 200px rgba(184,115,51,0.03)',
+              background: 'linear-gradient(160deg, rgba(18,18,18,0.98), rgba(18,18,18,0.99))',
+              border: '1px solid rgba(229,228,226,0.06)',
+              boxShadow: '0 0 80px rgba(229,228,226,0.04), 0 0 200px rgba(229,228,226,0.015)',
             }}
           >
             <motion.div
               className="absolute -top-20 -right-20 w-60 h-60 rounded-full"
               style={{
-                background: 'radial-gradient(circle, rgba(184,115,51,0.08), transparent 70%)',
+                background: 'radial-gradient(circle, rgba(229,228,226,0.04), transparent 70%)',
                 filter: 'blur(40px)',
               }}
               animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
@@ -66,7 +66,7 @@ export default function WelcomeModal() {
             <motion.div
               className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full"
               style={{
-                background: 'radial-gradient(circle, rgba(217,160,102,0.05), transparent 70%)',
+                background: 'radial-gradient(circle, rgba(191,192,192,0.03), transparent 70%)',
                 filter: 'blur(40px)',
               }}
               animate={{ scale: [1.2, 1, 1.2], opacity: [0.4, 0.7, 0.4] }}
@@ -77,8 +77,8 @@ export default function WelcomeModal() {
               className="absolute inset-0 opacity-[0.012] pointer-events-none"
               style={{
                 backgroundImage: `
-                  linear-gradient(rgba(184,115,51,1) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(184,115,51,1) 1px, transparent 1px)
+                  linear-gradient(rgba(229,228,226,0.3) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(229,228,226,0.3) 1px, transparent 1px)
                 `,
                 backgroundSize: '40px 40px',
               }}
@@ -94,10 +94,10 @@ export default function WelcomeModal() {
               >
                   <motion.div variants={childVariants} className="text-center mb-6" style={{ transform: 'translateZ(20px)' }}>
                   <div className="inline-flex items-center mb-1">
-                    <span className="heading-1 gold-gradient-heavy text-glow" style={{ textShadow: '0 0 30px rgba(184,115,51,0.2)' }}>HMZ</span>
+                    <span className="heading-1 gold-gradient-heavy text-glow" style={{ textShadow: '0 0 30px rgba(229,228,226,0.1)' }}>HMZ</span>
                     <span className="heading-1 text-white/95 text-glow-strong" style={{ textShadow: '0 0 20px rgba(255,255,255,0.08)' }}>Develop</span>
                   </div>
-                  <div className="w-16 h-px mx-auto mt-3" style={{ background: 'linear-gradient(90deg, transparent, rgba(184,115,51,0.4), transparent)' }} />
+                  <div className="w-16 h-px mx-auto mt-3" style={{ background: 'linear-gradient(90deg, transparent, rgba(229,228,226,0.2), transparent)' }} />
                 </motion.div>
 
                 <motion.p
@@ -129,8 +129,8 @@ export default function WelcomeModal() {
                       key={item.label}
                       className="flex items-start gap-3 px-4 py-3 rounded-xl"
                       style={{
-                        background: 'rgba(184,115,51,0.03)',
-                        border: '1px solid rgba(184,115,51,0.06)',
+                        background: 'rgba(229,228,226,0.015)',
+                        border: '1px solid rgba(229,228,226,0.035)',
                       }}
                     >
                       <span className="text-gold text-sm mt-0.5 flex-shrink-0">✦</span>
