@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="95" stroke="#D4AF37" stroke-width="2" fill="none"/>
+  <circle cx="100" cy="100" r="85" stroke="rgba(212,175,55,0.2)" stroke-width="1" fill="none"/>
+  <!-- Taco shell -->
+  <path d="M55 118 C55 85 75 60 100 60 C125 60 145 85 145 118" stroke="#D4AF37" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Taco filling -->
+  <path d="M65 112 C70 95 82 84 100 82 C118 84 130 95 135 112" stroke="#F2D27A" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <line x1="72" y1="105" x2="128" y2="105" stroke="#D4AF37" stroke-width="1.5" opacity="0.4"/>
+  <!-- Steam lines -->
+  <path d="M90 58 C92 50 88 45 90 38" stroke="rgba(212,175,55,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M110 55 C112 48 108 42 110 35" stroke="rgba(212,175,55,0.2)" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Text -->
+  <text x="100" y="152" text-anchor="middle" font-family="'Clash Display','Inter',sans-serif" font-size="18" font-weight="700" fill="#D4AF37" letter-spacing="3">TORTA</text>
+  <text x="100" y="170" text-anchor="middle" font-family="'Clash Display','Inter',sans-serif" font-size="12" font-weight="400" fill="rgba(242,210,122,0.6)" letter-spacing="4">BOYZ</text>
+</svg>

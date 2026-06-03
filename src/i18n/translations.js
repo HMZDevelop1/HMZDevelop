@@ -3,7 +3,7 @@ const translations = {
     nav: {
       home: 'Home',
       process: 'How We Create',
-      projects: 'Featured Project',
+      projects: 'Projects',
       services: 'Services',
       contact: 'Contact',
       startProject: 'Start Project',
@@ -128,7 +128,8 @@ const translations = {
     },
     showcase: {
       projects: [
-        { title: 'Lockingg', category: 'Digital Security Platform', icon: '🔐', beta: true, desc: 'A next-generation digital locking and security platform built with cutting-edge technology, intuitive UX, and robust architecture for modern access management.', link: 'https://lockingg-2-flyy.vercel.app', logo: null, tags: ['Security', 'Access Control', 'Real-time', 'Dashboard'], features: ['Secure Auth', 'Real-time Monitoring', 'Access Management', 'Analytics', 'Responsive'] },
+        { title: 'Lockingg', category: 'Digital Security Platform', icon: '🔐', beta: true, desc: 'A next-generation digital locking and security platform built with cutting-edge technology, intuitive UX, and robust architecture for modern access management.', link: 'https://lockingg-2-flyy.vercel.app', logo: 'https://lockingg-2-flyy.vercel.app/images/logo.png', tags: ['Security', 'Access Control', 'Real-time', 'Dashboard'], features: ['Secure Auth', 'Real-time Monitoring', 'Access Management', 'Analytics', 'Responsive'] },
+        { title: 'Torta Boyz', category: 'Food & Ordering Platform', icon: '🌮', beta: true, desc: 'A modern food ordering and menu management platform with a clean, intuitive interface designed for local taquerias and fast-casual restaurants.', link: 'https://torta-boyz.vercel.app', logo: '/images/torta-boyz-logo.svg', tags: ['Food Tech', 'Online Ordering', 'Menu Management', 'Restaurant'], features: ['Digital Menu', 'Online Orders', 'Admin Dashboard', 'Real-time Updates', 'Responsive'] },
       ],
     },
     why: {
@@ -325,7 +326,8 @@ const translations = {
     },
     showcase: {
       projects: [
-        { title: 'Lockingg', category: 'Plateforme de Sécurité Digitale', icon: '🔐', beta: true, desc: 'Une plateforme de verrouillage et de sécurité digitale de nouvelle génération construite avec une technologie de pointe, un UX intuitif et une architecture robuste.', link: 'https://lockingg-2-flyy.vercel.app', logo: null, tags: ['Sécurité', 'Contrôle d\'accès', 'Temps réel', 'Tableau de bord'], features: ['Auth Sécurisée', 'Monitoring', 'Gestion d\'accès', 'Analytique', 'Responsive'] },
+        { title: 'Lockingg', category: 'Plateforme de Sécurité Digitale', icon: '🔐', beta: true, desc: 'Une plateforme de verrouillage et de sécurité digitale de nouvelle génération construite avec une technologie de pointe, un UX intuitif et une architecture robuste.', link: 'https://lockingg-2-flyy.vercel.app', logo: 'https://lockingg-2-flyy.vercel.app/images/logo.png', tags: ['Sécurité', 'Contrôle d\'accès', 'Temps réel', 'Tableau de bord'], features: ['Auth Sécurisée', 'Monitoring', 'Gestion d\'accès', 'Analytique', 'Responsive'] },
+        { title: 'Torta Boyz', category: 'Plateforme de Commandes Alimentaires', icon: '🌮', beta: true, desc: 'Une plateforme moderne de gestion de menus et de commandes en ligne avec une interface propre et intuitive pour les taquerias et restaurants rapides.', link: 'https://torta-boyz.vercel.app', logo: '/images/torta-boyz-logo.svg', tags: ['Food Tech', 'Commandes en ligne', 'Gestion de Menu', 'Restaurant'], features: ['Menu Digital', 'Commandes en ligne', 'Dashboard Admin', 'Mise à jour temps réel', 'Responsive'] },
       ],
     },
     why: {

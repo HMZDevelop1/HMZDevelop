@@ -511,3 +511,33 @@ p, span, li, a, button, input, textarea, select {
   color: rgba(139, 139, 139, 0.4);
   font-weight: 400;
 }
+
+/* Section Reveal Animations */
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.section-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project Card Hover Refinements */
+.project-card-glow {
+  transition: box-shadow 0.5s ease, border-color 0.4s ease;
+}
+.project-card-glow:hover {
+  box-shadow:
+    0 0 60px rgba(212,175,55,0.06),
+    0 0 120px rgba(212,175,55,0.03),
+    0 20px 60px rgba(0,0,0,0.3);
+  border-color: rgba(212,175,55,0.15);
+}
+
+/* Smooth image rendering */
+img {
+  -webkit-font-smoothing: antialiased;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}

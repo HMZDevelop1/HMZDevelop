@@ -8,23 +8,232 @@ import useTilt from '../hooks/useTilt'
 const Scene3D = lazy(() => import('../components/Scene3D'))
 const FloatingShape = lazy(() => import('../components/FloatingShape'))
 const Particles3D = lazy(() => import('../components/Particles3D'))
-import BorderRotate from '../components/BorderRotate'
 
-function ProjectIcon({ icon }) {
+function ProjectLogo({ project }) {
+  const [imgError, setImgError] = useState(false)
+
+  if (project.logo && !imgError) {
+    return (
+      <img
+        src={project.logo}
+        alt={`${project.title} logo`}
+        className="w-full h-full object-contain p-4"
+        onError={() => setImgError(true)}
+      />
+    )
+  }
+
   return (
-    <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-56 md:h-56 flex items-center justify-center">
-      <div className="w-full h-full rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500 relative overflow-hidden"
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl flex items-center justify-center"
         style={{
-          background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(242,210,122,0.03))',
-          border: '1px solid rgba(212,175,55,0.12)',
+          background: 'linear-gradient(135deg, rgba(212,175,55,0.12), rgba(242,210,122,0.04))',
+          border: '1px solid rgba(212,175,55,0.15)',
         }}
       >
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-          style={{ background: 'radial-gradient(circle at 50% 50%, rgba(212,175,55,0.1), transparent 70%)' }}
-        />
-        <span className="text-6xl md:text-7xl relative z-10 drop-shadow-2xl">{icon}</span>
+        <span className="text-4xl md:text-5xl drop-shadow-xl">{project.icon}</span>
       </div>
     </div>
+  )
+}
+
+function BetaBadge() {
+  return (
+    <div className="relative px-3 py-1 rounded-full overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, rgba(212,175,55,0.2), rgba(242,210,122,0.1))',
+        border: '1px solid rgba(212,175,55,0.4)',
+        boxShadow: '0 0 20px rgba(212,175,55,0.15)',
+      }}
+    >
+      <span className="relative font-heading text-[9px] font-bold tracking-[0.2em] uppercase gold-gradient">BETA</span>
+      <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-gold animate-ping opacity-60" />
+    </div>
+  )
+}
+
+function ProjectCard({ project, index }) {
+  const tiltRef = useTilt({ perspective: 1200, maxTilt: 4, scale: 1.015 })
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+      className="relative group"
+      style={{ transformStyle: 'preserve-3d' }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Background glow on hover */}
+      <motion.div
+        className="absolute -inset-4 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.08), transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
+
+      <div
+        ref={tiltRef}
+        className="relative rounded-2xl overflow-hidden card-tilt h-full"
+        style={{
+          background: 'linear-gradient(160deg, #0d0b08 0%, #0a0806 50%, #050505 100%)',
+          border: isHovered ? '1px solid rgba(212,175,55,0.2)' : '1px solid rgba(212,175,55,0.06)',
+          boxShadow: isHovered
+            ? '0 0 80px rgba(212,175,55,0.08), 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(212,175,55,0.12)'
+            : '0 0 40px rgba(212,175,55,0.03), inset 0 1px 0 rgba(212,175,55,0.06)',
+          transformStyle: 'preserve-3d',
+          transition: 'border 0.4s ease, box-shadow 0.4s ease',
+        }}
+      >
+        {/* Top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-80" />
+
+        {/* BETA Badge */}
+        {project.beta && (
+          <div className="absolute top-4 right-4 z-20">
+            <BetaBadge />
+          </div>
+        )}
+
+        <div className="flex flex-col md:flex-row min-h-[400px] md:min-h-[320px]">
+          {/* Left: Logo Area */}
+          <div className="relative w-full md:w-[42%] flex items-center justify-center p-8 md:p-10 min-h-[200px] md:min-h-0">
+            <div className="absolute inset-4 md:inset-6 rounded-xl pointer-events-none"
+              style={{ border: '1px solid rgba(212,175,55,0.06)' }}
+            />
+            {/* Corner decorations */}
+            <div className="absolute top-6 left-6 w-2.5 h-2.5 pointer-events-none"
+              style={{ borderTop: '1.5px solid rgba(212,175,55,0.15)', borderLeft: '1.5px solid rgba(212,175,55,0.15)' }}
+            />
+            <div className="absolute top-6 right-6 w-2.5 h-2.5 pointer-events-none"
+              style={{ borderTop: '1.5px solid rgba(212,175,55,0.15)', borderRight: '1.5px solid rgba(212,175,55,0.15)' }}
+            />
+            <div className="absolute bottom-6 left-6 w-2.5 h-2.5 pointer-events-none"
+              style={{ borderBottom: '1.5px solid rgba(212,175,55,0.15)', borderLeft: '1.5px solid rgba(212,175,55,0.15)' }}
+            />
+            <div className="absolute bottom-6 right-6 w-2.5 h-2.5 pointer-events-none"
+              style={{ borderBottom: '1.5px solid rgba(212,175,55,0.15)', borderRight: '1.5px solid rgba(212,175,55,0.15)' }}
+            />
+
+            {/* Background radial glow */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <motion.div
+                className="w-56 h-56 md:w-72 md:h-72 rounded-full"
+                style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 60%)' }}
+                animate={{ scale: isHovered ? 1.2 : 1, opacity: isHovered ? 0.2 : 0.1 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              />
+            </div>
+
+            <div className="relative z-10 w-full h-full flex items-center justify-center">
+              <motion.div
+                animate={{ scale: isHovered ? 1.05 : 1 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="w-32 h-32 md:w-40 md:h-40"
+              >
+                <ProjectLogo project={project} />
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Separator line */}
+          <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-gold/10 to-transparent mx-0" />
+
+          {/* Right: Content */}
+          <div className="relative flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-10 pb-8 md:pb-10 pt-4 md:pt-10">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-3"
+            >
+              {/* Category */}
+              <motion.span
+                custom={0}
+                variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
+                className="block font-body text-[10px] tracking-[0.25em] uppercase text-gold/50 font-medium"
+              >
+                {project.category}
+              </motion.span>
+
+              {/* Title */}
+              <motion.h3
+                custom={1}
+                variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
+                className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight"
+              >
+                {project.title}
+              </motion.h3>
+
+              {/* Description */}
+              <motion.p
+                custom={2}
+                variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
+                className="font-body text-xs sm:text-sm text-white/45 leading-relaxed max-w-lg"
+              >
+                {project.desc}
+              </motion.p>
+
+              {/* Tags */}
+              {project.tags && (
+                <motion.div
+                  custom={3}
+                  variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
+                  className="flex flex-wrap gap-1.5 pt-1"
+                >
+                  {project.tags.map((tag) => (
+                    <span key={tag}
+                      className="font-body text-[9px] sm:text-[10px] tracking-wider uppercase px-2.5 py-1 rounded-full transition-all duration-300 hover:bg-gold/10 hover:border-gold/40"
+                      style={{ border: '1px solid rgba(212,175,55,0.2)', background: 'rgba(212,175,55,0.06)', color: 'rgba(212,175,55,0.6)' }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </motion.div>
+              )}
+
+              {/* Features row + CTA */}
+              <motion.div
+                custom={4}
+                variants={{ hidden: { y: 20, opacity: 0 }, visible: (i) => ({ y: 0, opacity: 1, transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] } }) }}
+                className="flex flex-wrap items-center justify-between gap-3 pt-3"
+                style={{ borderTop: '1px solid rgba(212,175,55,0.08)' }}
+              >
+                {project.features && (
+                  <div className="flex flex-wrap gap-x-3 gap-y-1">
+                    {project.features.map((feat) => (
+                      <span key={feat}
+                        className="font-body text-[8px] sm:text-[9px] tracking-wider text-gold/30 uppercase flex items-center gap-1"
+                      >
+                        <span className="w-1 h-1 rounded-full bg-gold/20 inline-block" />
+                        {feat}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-400 hover:bg-gold/12 hover:shadow-[0_0_25px_rgba(212,175,55,0.1)]"
+                  style={{ border: '1px solid rgba(212,175,55,0.25)', color: 'rgba(212,175,55,0.85)' }}
+                >
+                  <span className="font-body text-[11px] font-semibold tracking-wider uppercase">View Project</span>
+                  <svg className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
   )
 }
 
@@ -32,10 +241,7 @@ export default function Showcase() {
   const { t } = useLanguage()
   const sectionRef = useRef(null)
   const bgRef = useRef(null)
-  const cardInnerRef = useRef(null)
-  const [isHovered, setIsHovered] = useState(false)
-  const project = t.showcase.projects[0]
-  const tiltRef = useTilt({ perspective: 1200, maxTilt: 4, scale: 1.015 })
+  const projects = t.showcase.projects
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -45,7 +251,7 @@ export default function Showcase() {
         end: 'bottom top',
         onUpdate: (self) => {
           if (bgRef.current) {
-            bgRef.current.style.transform = `translateY(${self.progress * 60}px)`
+            bgRef.current.style.transform = `translateY(${self.progress * 40}px)`
             bgRef.current.style.opacity = 1 - self.progress * 0.3
           }
         },
@@ -55,39 +261,16 @@ export default function Showcase() {
     return () => ctx.revert()
   }, [])
 
-  const item = {
-    hidden: { y: 30, opacity: 0 },
-    visible: (i) => ({
-      y: 0,
-      opacity: 1,
-      transition: { delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-    }),
-  }
-
   return (
-    <section ref={sectionRef} id="showcase" className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-24"
+    <section ref={sectionRef} id="showcase" className="section-padding relative overflow-hidden"
       style={{ background: 'linear-gradient(180deg, #050505 0%, #0a0804 50%, #050505 100%)' }}
     >
-      {/* 3D Background with parallax */}
+      {/* 3D Background */}
       <div ref={bgRef} className="absolute inset-0 pointer-events-none will-change-transform">
         <Suspense fallback={null}>
           <Scene3D cameraPosition={[0, 0, 10]} frameloop="demand" dpr={[1, 1.2]}>
-            <FloatingShape
-              geometry="icosahedron"
-              color="#D4AF37"
-              scale={1.8}
-              speed={0.04}
-              floatAmplitude={0.5}
-              mouseInfluence={0.15}
-            />
-            <FloatingShape
-              geometry="torusKnot"
-              color="#F2D27A"
-              scale={0.8}
-              speed={0.08}
-              floatAmplitude={0.6}
-              mouseInfluence={0.2}
-            />
+            <FloatingShape geometry="icosahedron" color="#D4AF37" scale={1.8} speed={0.04} floatAmplitude={0.5} mouseInfluence={0.15} />
+            <FloatingShape geometry="torusKnot" color="#F2D27A" scale={0.8} speed={0.08} floatAmplitude={0.6} mouseInfluence={0.2} />
             <Particles3D count={40} color="#D4AF37" size={0.02} speed={0.04} spread={15} />
           </Scene3D>
         </Suspense>
@@ -95,227 +278,60 @@ export default function Showcase() {
 
       {/* Gold orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(212,175,55,0.06) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%)',
             animation: 'pulseGold 8s ease-in-out infinite',
-          }}
-        />
-        <div className="absolute bottom-1/4 right-1/3 w-[600px] h-[600px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(242,210,122,0.05) 0%, transparent 70%)',
-            animation: 'pulseGold 10s ease-in-out infinite reverse',
           }}
         />
       </div>
 
-      <div className="absolute inset-0 grid-overlay opacity-15 pointer-events-none" />
+      <div className="absolute inset-0 grid-overlay opacity-10 pointer-events-none" />
 
-      {/* Section Label */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="absolute top-12 left-1/2 -translate-x-1/2 z-10 text-center pointer-events-none"
-      >
-        <span className="font-accent text-gold/40 text-sm italic tracking-wide">Featured Project</span>
-        <div className="w-8 h-px mx-auto mt-2 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-      </motion.div>
-
-      {/* Card */}
-      <motion.div
-        initial={{ scale: 0.92, opacity: 0, y: 40 }}
-        whileInView={{ scale: 1, opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-4xl mx-auto px-3 sm:px-4"
-        style={{ transformStyle: 'preserve-3d' }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <motion.div
-          animate={{ scale: isHovered ? 1.01 : 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <BorderRotate
-            animationMode="auto-rotate"
-            animationSpeed={8}
-            gradientColors={{
-              primary: '#584827',
-              secondary: '#c7a03c',
-              accent: '#f9de90',
-            }}
-            backgroundColor="#0d0b08"
-            borderWidth={1.5}
-            borderRadius={24}
-            className="w-full group"
+      <div className="max-w-premium relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-14 md:mb-18">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-3 mb-4"
           >
-            <div
-              ref={tiltRef}
-              className="relative rounded-card overflow-hidden card-tilt"
-              style={{
-                background: 'linear-gradient(135deg, #0d0b08 0%, #0a0806 40%, #050505 100%)',
-                boxShadow: isHovered
-                  ? '0 0 120px rgba(212,175,55,0.12), 0 0 200px rgba(212,175,55,0.04), 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(212,175,55,0.15)'
-                  : '0 0 60px rgba(212,175,55,0.04), inset 0 1px 0 rgba(212,175,55,0.1)',
-                border: isHovered ? '1px solid rgba(212,175,55,0.15)' : '1px solid rgba(212,175,55,0.06)',
-                transformStyle: 'preserve-3d',
-              }}
-            >
-              {/* BETA Badge */}
-              <div className="absolute top-4 right-4 z-20">
-                <div className="relative px-4 py-1.5 rounded-full overflow-hidden"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(212,175,55,0.2), rgba(242,210,122,0.1))',
-                    border: '1px solid rgba(212,175,55,0.4)',
-                    boxShadow: '0 0 25px rgba(212,175,55,0.15), inset 0 0 15px rgba(212,175,55,0.05)',
-                  }}
-                >
-                  <div className="absolute inset-0 animate-shimmer-gold"
-                    style={{
-                      background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
-                      backgroundSize: '200% 100%',
-                    }}
-                  />
-                  <span className="relative font-heading text-[10px] font-bold tracking-[0.25em] uppercase gold-gradient">
-                    BETA
-                  </span>
-                  <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-gold animate-ping opacity-60" />
-                </div>
-              </div>
+            <span className="w-6 h-px bg-gold/30" />
+            <span className="font-accent text-gold/60 text-sm italic tracking-wide">Our Work</span>
+            <span className="w-6 h-px bg-gold/30" />
+          </motion.div>
 
-              <div className="flex flex-col md:flex-row min-h-[50vh] md:min-h-[45vh]">
-                {/* Left: Project Icon */}
-                <div className="relative w-full md:w-[45%] flex items-center justify-center p-6 md:p-10 min-h-[200px] md:min-h-0">
-                  <div className="absolute inset-5 md:inset-7 rounded-2xl pointer-events-none"
-                    style={{ border: '1px solid rgba(212,175,55,0.08)' }}
-                  />
-                  <div className="absolute top-7 md:top-9 left-7 md:left-9 w-3 h-3 pointer-events-none"
-                    style={{ borderTop: '1.5px solid rgba(212,175,55,0.2)', borderLeft: '1.5px solid rgba(212,175,55,0.2)' }}
-                  />
-                  <div className="absolute top-7 md:top-9 right-7 md:right-9 w-3 h-3 pointer-events-none"
-                    style={{ borderTop: '1.5px solid rgba(212,175,55,0.2)', borderRight: '1.5px solid rgba(212,175,55,0.2)' }}
-                  />
-                  <div className="absolute bottom-7 md:bottom-9 left-7 md:left-9 w-3 h-3 pointer-events-none"
-                    style={{ borderBottom: '1.5px solid rgba(212,175,55,0.2)', borderLeft: '1.5px solid rgba(212,175,55,0.2)' }}
-                  />
-                  <div className="absolute bottom-7 md:bottom-9 right-7 md:right-9 w-3 h-3 pointer-events-none"
-                    style={{ borderBottom: '1.5px solid rgba(212,175,55,0.2)', borderRight: '1.5px solid rgba(212,175,55,0.2)' }}
-                  />
-                  <div className="absolute inset-8 md:inset-10 rounded-xl pointer-events-none"
-                    style={{ border: '1px solid rgba(212,175,55,0.05)' }}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <motion.div
-                      className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full"
-                      style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 60%)' }}
-                      animate={{ scale: isHovered ? 1.15 : 1, opacity: isHovered ? 0.2 : 0.12 }}
-                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    />
-                  </div>
-                  <div className="relative z-10">
-                    <ProjectIcon icon={project.icon} />
-                  </div>
-                </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight"
+          >
+            Featured{' '}
+            <span className="gold-gradient-heavy">Projects</span>
+          </motion.h2>
 
-                {/* Right: Content */}
-                <div className="relative w-full md:w-[55%] flex flex-col justify-center px-6 sm:px-8 md:px-12 pb-8 md:pb-12 pt-2 md:pt-12">
-                  <div className="hidden md:block absolute top-12 left-0 w-12 h-px pointer-events-none"
-                    style={{ background: 'linear-gradient(90deg, rgba(212,175,55,0.4), transparent)' }}
-                  />
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="font-body text-muted mt-4 max-w-lg mx-auto leading-relaxed text-sm"
+          >
+            Real projects we&apos;ve built — from concept to deployment. Each one crafted with precision, performance, and purpose.
+          </motion.p>
+        </div>
 
-                  <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="space-y-3 sm:space-y-4"
-                  >
-                    <motion.span custom={0} variants={item} className="block font-body text-[10px] tracking-[0.3em] uppercase text-gold/50 font-medium">
-                      {project.category}
-                    </motion.span>
-
-                    <motion.h3 custom={1} variants={item} className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
-                      {project.title}
-                    </motion.h3>
-
-                    <motion.p custom={2} variants={item} className="font-body text-xs sm:text-sm md:text-base text-white/45 max-w-lg leading-relaxed">
-                      {project.desc}
-                    </motion.p>
-
-                    {project.tags && (
-                      <motion.div custom={3} variants={item} className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
-                        {project.tags.map((tag) => (
-                          <span key={tag}
-                            className="font-body text-[9px] sm:text-[10px] tracking-wider uppercase px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full transition-all duration-300 hover:bg-gold/10 hover:border-gold/40"
-                            style={{ border: '1px solid rgba(212,175,55,0.2)', background: 'rgba(212,175,55,0.06)', color: 'rgba(212,175,55,0.7)' }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </motion.div>
-                    )}
-
-                    {/* Beta Status Bar */}
-                    <motion.div custom={4} variants={item} style={{ perspective: '320px' }}>
-                      <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all duration-300 cursor-default"
-                        style={{
-                          background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(242,210,122,0.03))',
-                          border: '1px solid rgba(212,175,55,0.1)',
-                        }}
-                      >
-                        <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(212,175,55,0.08)' }}>
-                          <motion.div
-                            className="h-full rounded-full"
-                            style={{
-                              background: 'linear-gradient(90deg, #D4AF37, #F2D27A, #D4AF37)',
-                              backgroundSize: '200% 100%',
-                            }}
-                            animate={{ backgroundPosition: ['0% 0%', '200% 0%'] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-                          />
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_6px_rgba(251,191,36,0.5)]" />
-                          <span className="font-body text-[9px] uppercase tracking-[0.2em] text-amber-400/70 font-medium">Beta</span>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                    <motion.div custom={5} variants={item} className="flex items-center justify-between pt-3 sm:pt-4 mt-1 sm:mt-2"
-                      style={{ borderTop: '1px solid rgba(212,175,55,0.08)' }}
-                    >
-                      {project.features && (
-                        <div className="flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-1">
-                          {project.features.map((feat) => (
-                            <span key={feat}
-                              className="font-body text-[8px] sm:text-[9px] md:text-[10px] tracking-wider text-gold/35 uppercase flex items-center gap-1.5"
-                            >
-                              <span className="w-1 h-1 rounded-full bg-gold/25 inline-block" />
-                              {feat}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/btn flex-shrink-0 inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 rounded-full ml-2 sm:ml-3 transition-all duration-400 hover:bg-gold/15 hover:shadow-[0_0_30px_rgba(212,175,55,0.12)] hover:border-gold/40"
-                        style={{ border: '1px solid rgba(212,175,55,0.25)', color: 'rgba(212,175,55,0.9)' }}
-                      >
-                        <span className="font-body text-xs font-semibold tracking-wider uppercase">Visit site</span>
-                        <svg className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </a>
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-          </BorderRotate>
-        </motion.div>
-      </motion.div>
+        {/* Project Cards Grid */}
+        <div className="max-w-5xl mx-auto space-y-8 md:space-y-10">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} />
+          ))}
+        </div>
+      </div>
     </section>
   )
 }
