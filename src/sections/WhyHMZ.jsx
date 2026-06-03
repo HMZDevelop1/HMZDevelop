@@ -24,7 +24,7 @@ function WhyCard({ feature, idx }) {
       <h3 className="heading-4 text-white mb-2 group-hover:gold-gradient-heavy transition-all duration-300">
         {feature.title}
       </h3>
-      <p className="body-sm text-muted/60 group-hover:text-muted/80 transition-colors duration-300">
+      <p className="body-sm text-muted/75 group-hover:text-muted/90 transition-colors duration-300">
         {feature.desc}
       </p>
     </motion.div>

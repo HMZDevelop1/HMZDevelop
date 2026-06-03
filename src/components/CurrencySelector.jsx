@@ -22,7 +22,7 @@ export default function CurrencySelector() {
       <motion.button
         onClick={() => setOpen(!open)}
         whileHover={{ scale: 1.05 }}
-        className="flex items-center gap-1.5 heading-4 text-white/25 hover:text-gold px-2 py-2 rounded-lg transition-all duration-300"
+        className="flex items-center gap-1.5 heading-4 text-white/40 hover:text-gold px-2 py-2 rounded-lg transition-all duration-300"
         style={{ transformStyle: 'preserve-3d' }}
       >
         <span className="relative z-10 block" style={{ transform: 'translateZ(6px)' }}>

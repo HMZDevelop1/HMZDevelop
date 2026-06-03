@@ -57,7 +57,7 @@ export default function Footer() {
               </span>
               <span className="label-sm text-muted">Available for projects</span>
             </div>
-            <p className="body-base text-white/40 mb-4">
+            <p className="body-base text-white/50 mb-4">
               Open to new collaborations. Let&apos;s build something extraordinary together.
             </p>
             <a

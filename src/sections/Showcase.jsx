@@ -117,7 +117,7 @@ function ProjectCard({ project, index }) {
 
           <div className="relative flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-10 pb-8 md:pb-10 pt-4 md:pt-10">
             <div className="space-y-3">
-              <span className="block label-sm text-gold/50">
+              <span className="block label-sm text-gold/60">
                 {project.category}
               </span>
 
@@ -125,7 +125,7 @@ function ProjectCard({ project, index }) {
                 {project.title}
               </h3>
 
-              <p className="body-base text-white/45 max-w-lg">
+              <p className="body-base text-white/55 max-w-lg">
                 {project.desc}
               </p>
 
@@ -134,7 +134,7 @@ function ProjectCard({ project, index }) {
                   {project.tags.map((tag) => (
                     <span key={tag}
                       className="label-sm px-2.5 py-1 rounded-full transition-all duration-300 md:hover:bg-gold/10 md:hover:border-gold/40"
-                      style={{ border: '1px solid rgba(220,38,38,0.12)', background: 'rgba(220,38,38,0.04)', color: 'rgba(220,38,38,0.36)' }}
+                      style={{ border: '1px solid rgba(220,38,38,0.12)', background: 'rgba(220,38,38,0.04)', color: 'rgba(220,38,38,0.5)' }}
                     >
                       {tag}
                     </span>
@@ -149,7 +149,7 @@ function ProjectCard({ project, index }) {
                   <div className="flex flex-wrap gap-x-3 gap-y-1">
                     {project.features.map((feat) => (
                       <span key={feat}
-                        className="label-sm text-gold/30 flex items-center gap-1"
+                        className="label-sm text-gold/40 flex items-center gap-1"
                       >
                         <span className="w-1 h-1 rounded-full bg-gold/20 inline-block" />
                         {feat}
@@ -163,7 +163,7 @@ function ProjectCard({ project, index }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group/btn inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-400 md:hover:bg-gold/12 md:hover:shadow-[0_0_25px_rgba(220,38,38,0.05)]"
-                  style={{ border: '1px solid rgba(220,38,38,0.15)', color: 'rgba(220,38,38,0.51)' }}
+                  style={{ border: '1px solid rgba(220,38,38,0.15)', color: 'rgba(220,38,38,0.6)' }}
                 >
                   <span className="btn-text-sm">View Project</span>
                   <svg className="w-3 h-3 md:group-hover/btn:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -229,7 +229,7 @@ export default function Showcase() {
       <div className="absolute inset-0 grid-overlay opacity-10 pointer-events-none" />
 
       <div className="max-w-premium relative z-10">
-        <div className="text-center mb-14 md:mb-18">
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -237,9 +237,9 @@ export default function Showcase() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-3 mb-4"
           >
-            <span className="w-6 h-px bg-gold/30" />
-            <span className="accent-text text-gold/60 text-sm">Our Work</span>
-            <span className="w-6 h-px bg-gold/30" />
+            <span className="w-6 h-px bg-gold/40" />
+            <span className="accent-text text-gold/70 text-sm">Our Work</span>
+            <span className="w-6 h-px bg-gold/40" />
           </motion.div>
 
           <motion.h2
@@ -264,7 +264,7 @@ export default function Showcase() {
           </motion.p>
         </div>
 
-        <div className="max-w-5xl mx-auto space-y-8 md:space-y-10">
+        <div className="max-w-5xl mx-auto space-y-10 md:space-y-12">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}

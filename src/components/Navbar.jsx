@@ -155,7 +155,7 @@ export default function Navbar() {
                       className={`relative z-10 block text-sm tracking-wide transition-all duration-300 ${
                         isActive
                           ? 'gold-gradient font-semibold'
-                          : 'text-white/40 hover:text-white/80 font-medium'
+                          : 'text-white/50 hover:text-white/80 font-medium'
                       }`}
                       style={{ transform: 'translateZ(16px)' }}
                     >
@@ -189,7 +189,7 @@ export default function Navbar() {
                 initial="hidden"
                 animate="visible"
                 whileHover={{ scale: 1.05 }}
-                className="relative font-heading text-[11px] tracking-wide font-semibold text-white/25 hover:text-gold px-2 py-2 rounded-lg transition-all duration-300"
+                className="relative font-heading text-[11px] tracking-wide font-semibold text-white/40 hover:text-gold px-2 py-2 rounded-lg transition-all duration-300"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 <span className="relative z-10 block" style={{ transform: 'translateZ(6px)' }}>
@@ -254,7 +254,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ delay: i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-heading text-4xl md:text-5xl tracking-tight font-bold text-white/30 hover:gold-gradient-heavy transition-all duration-300"
+                  className="font-heading text-4xl md:text-5xl tracking-tight font-bold text-white/50 hover:gold-gradient-heavy transition-all duration-300"
                 >
                   {t.nav[link.labelKey]}
                 </motion.a>
@@ -268,7 +268,7 @@ export default function Navbar() {
                 <CurrencySelector />
                 <button
                   onClick={() => { toggleLang(); setMobileOpen(false) }}
-                  className="font-heading text-xs tracking-wide font-semibold text-white/25 hover:text-gold px-3 py-2 rounded-lg transition-all duration-300"
+                  className="font-heading text-xs tracking-wide font-semibold text-white/40 hover:text-gold px-3 py-2 rounded-lg transition-all duration-300"
                 >
                   {lang === 'en' ? 'FR' : 'EN'}
                 </button>

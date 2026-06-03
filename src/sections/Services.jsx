@@ -82,7 +82,7 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
               {service.features.map((feat) => (
                 <div key={feat} className="flex items-start gap-2.5 group/feat">
                   <span className="text-gold/60 group-hover/feat:text-gold transition-colors duration-300 mt-0.5 text-xs flex-shrink-0">✦</span>
-                  <span className="body-sm text-white/50 group-hover/feat:text-white/70 transition-colors duration-300">{feat}</span>
+                  <span className="body-sm text-white/60 group-hover/feat:text-white/80 transition-colors duration-300">{feat}</span>
                 </div>
               ))}
             </div>
@@ -91,11 +91,11 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
           <div className="px-6 pb-8">
             <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-gold/60 to-transparent mx-auto mb-4 rounded-full" />
             <div className="text-center mb-5">
-              {service.tag && (
-                <div className="label-sm text-muted/40 mb-1">{service.tag}</div>
-              )}
+                  {service.tag && (
+                    <div className="label-sm text-muted/50 mb-1">{service.tag}</div>
+                  )}
               <div className="font-display text-4xl md:text-5xl font-bold gold-gradient-heavy tracking-tight leading-none mt-1">{formatPrice(service.basePrice)}</div>
-              {service.tag && <div className="label-sm text-gold/60 mt-2">{t.services.oneTime}</div>}
+              {service.tag && <div className="label-sm text-gold/70 mt-2">{t.services.oneTime}</div>}
             </div>
 
             <MagneticButton

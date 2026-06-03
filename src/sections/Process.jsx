@@ -25,7 +25,7 @@ function ProcessStep({ step, idx, stepColors }) {
       <h3 className="heading-4 text-white mb-3 group-hover:gold-gradient-heavy transition-all duration-300">
         {step.title}
       </h3>
-      <p className="body-sm text-muted/60 max-w-xs mx-auto group-hover:text-muted/80 transition-colors duration-300">
+      <p className="body-sm text-muted/75 max-w-xs mx-auto group-hover:text-muted/90 transition-colors duration-300">
         {step.desc}
       </p>
     </motion.div>

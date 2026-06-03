@@ -119,7 +119,7 @@ export default function Hero() {
           {t.hero.sub}
         </p>
 
-        <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10">
+        <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 mt-10 sm:mt-12">
           <MagneticButton
             href="#contact"
             className="px-8 py-4 rounded-full btn-text gold-glow"

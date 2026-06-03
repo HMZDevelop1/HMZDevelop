@@ -115,7 +115,7 @@ function SkillBar({ name, level, delay }) {
           style={{ width: `${level}%`, opacity: 0.3 }}
         />
       </div>
-      <span className="body-sm text-gold/50 group-hover:text-gold transition-colors duration-300 w-6 text-right tabular-nums">
+      <span className="body-sm text-gold/60 group-hover:text-gold transition-colors duration-300 w-6 text-right tabular-nums">
         {level}%
       </span>
     </div>

@@ -181,7 +181,7 @@ export default function Contact() {
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-6 btn-text-sm text-gold/60 hover:text-gold transition-colors"
+                    className="mt-6 btn-text-sm text-gold/70 hover:text-gold transition-colors"
                   >
                     Send another message
                   </button>

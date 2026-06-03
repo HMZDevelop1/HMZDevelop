@@ -63,7 +63,7 @@ export default function Trust() {
           className="trust-heading-reveal text-center mb-16"
         >
           <span className="accent-text text-gold text-lg">{t.trust.kicker}</span>
-          <h2 className="heading-2 text-white mt-2">
+          <h2 className="heading-1 text-white mt-2">
             {t.trust.heading}
           </h2>
         </motion.div>
