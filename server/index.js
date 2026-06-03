@@ -15,13 +15,23 @@ export function createApp() {
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
 
-  const resend = new Resend(process.env.RESEND_API_KEY)
+  const resendKey = process.env.RESEND_API_KEY
+  let resend
+  try {
+    if (resendKey) resend = new Resend(resendKey)
+  } catch {
+    console.warn('✦ Resend not configured — email sending disabled')
+  }
   const fromEmail = process.env.RESEND_FROM || 'onboarding@resend.dev'
   const fromName = 'HMZDevelop'
 
   app.post('/api/contact', async (req, res) => {
     try {
-      const { name, email, message, date, time, projectType } = req.body
+      const { name, email, message, date, time, projectType, _honey } = req.body
+
+      if (_honey) {
+        return res.status(400).json({ error: 'Bot detected' })
+      }
 
       const entry = {
         id: crypto.randomUUID(),
@@ -39,7 +49,10 @@ export function createApp() {
       messages.unshift(entry)
       writeMessages(messages)
 
-      const emailBody = `
+      let emailSent = false
+      if (resend) {
+        try {
+          const emailBody = `
         <div style="font-family: system-ui; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #D4AF37; border-bottom: 2px solid #D4AF37; padding-bottom: 12px;">
             ✦ New Inquiry — HMZDevelop
@@ -90,18 +103,22 @@ export function createApp() {
           </p>
         </div>
       `
+          await resend.emails.send({
+            from: `${fromName} <${fromEmail}>`,
+            to: process.env.NOTIFY_EMAIL || 'hamzachahby30@gmail.com',
+            subject: `✦ New inquiry from ${name}`,
+            html: emailBody,
+          })
+          emailSent = true
+        } catch (emailErr) {
+          console.error('Email send failed:', emailErr)
+        }
+      }
 
-      await resend.emails.send({
-        from: `${fromName} <${fromEmail}>`,
-        to: process.env.NOTIFY_EMAIL || 'hamzachahby30@gmail.com',
-        subject: `✦ New inquiry from ${name}`,
-        html: emailBody,
-      })
-
-      res.json({ success: true })
+      res.json({ success: true, emailSent })
     } catch (err) {
       console.error('Contact error:', err)
-      res.json({ success: true })
+      res.json({ success: false, error: 'Server error' })
     }
   })
 

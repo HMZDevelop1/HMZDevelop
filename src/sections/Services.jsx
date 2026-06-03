@@ -148,7 +148,7 @@ const serviceIcons = [
 
 export default function Services() {
   const { t } = useLanguage()
-  const { formatPrice } = useCurrency()
+  useCurrency()
   const sectionRef = useRef(null)
 
   useEffect(() => {
