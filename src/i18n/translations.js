@@ -63,7 +63,7 @@ const translations = {
           icon: '🌐',
           title: 'Starter Website',
           desc: 'Clean, modern websites for local businesses ready to establish their digital presence.',
-          basePrice: 79,
+          basePrice: 99,
           tag: 'starting at',
           popular: false,
           features: [
@@ -79,7 +79,7 @@ const translations = {
           icon: '⚡',
           title: 'Premium Business Website',
           desc: 'Advanced animations, modern UI, and high-performance architecture for growing brands.',
-          basePrice: 149,
+          basePrice: 199,
           tag: 'starting at',
           popular: true,
           features: [
@@ -96,7 +96,7 @@ const translations = {
           icon: '🛒',
           title: 'E-Commerce Website',
           desc: 'Modern online stores with seamless checkout, inventory management, and beautiful product displays.',
-          basePrice: 249,
+          basePrice: 349,
           tag: 'starting at',
           popular: false,
           features: [
@@ -261,7 +261,7 @@ const translations = {
           icon: '🌐',
           title: 'Site de Démarrage',
           desc: 'Sites web propres et modernes pour les commerces locaux prêts à établir leur présence digitale.',
-          basePrice: 79,
+          basePrice: 99,
           tag: 'à partir de',
           popular: false,
           features: [
@@ -277,7 +277,7 @@ const translations = {
           icon: '⚡',
           title: 'Site Business Premium',
           desc: 'Animations avancées, UI moderne et architecture haute performance pour les marques en croissance.',
-          basePrice: 149,
+          basePrice: 199,
           tag: 'à partir de',
           popular: true,
           features: [
@@ -294,7 +294,7 @@ const translations = {
           icon: '🛒',
           title: 'Site E-Commerce',
           desc: 'Boutiques en ligne modernes avec paiement fluide, gestion des stocks et présentations produits magnifiques.',
-          basePrice: 249,
+          basePrice: 349,
           tag: 'à partir de',
           popular: false,
           features: [

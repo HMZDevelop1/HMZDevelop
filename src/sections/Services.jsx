@@ -93,7 +93,7 @@ function ServiceCard({ service, icon, serviceIdx, popular }) {
               {service.tag && (
                 <div className="label-sm text-muted/50">{service.tag}</div>
               )}
-              <div className="font-heading text-2xl md:text-3xl font-bold gold-gradient-heavy mt-1">{formatPrice(service.basePrice)}</div>
+              <div className="font-accent italic text-3xl md:text-4xl gold-gradient-heavy mt-1 tracking-wide">{formatPrice(service.basePrice)}</div>
               {service.tag && <div className="label-sm text-muted/40 mt-1">{t.services.oneTime}</div>}
             </div>
 
